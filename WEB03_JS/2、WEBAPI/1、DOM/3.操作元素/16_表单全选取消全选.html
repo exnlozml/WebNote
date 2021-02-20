@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			table {
+				width: 300px;
+				margin: 100px auto;
+				text-align: center;
+				border-collapse: collapse;
+				font-size: 18px;
+			}
+			thead tr {
+				height: 30px;
+				background-color: skyblue;
+			}
+			tbody tr {
+				height: 30px;
+				background-color: whitesmoke;
+			}
+			tbody td {
+				font-size: 16px;
+				border-bottom: 1px solid #ccc;
+				color: brown;
+			}
+			.mouse {
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="all" /></th>
+					<th>商品</th>
+					<th>价钱</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>iPhone8</td>
+					<td>8000</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>iPad Pro</td>
+					<td>5000</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>iPad Air</td>
+					<td>2000</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" /></td>
+					<td>Apple Watch</td>
+					<td>2000</td>
+				</tr>
+			</tbody>
+			<script type="text/javascript">
+				//1.全选和取消全选做法: 让下面所以复选框的checked属性(选中状态) 跟随 全选按钮即可
+				//(1).获取元素
+				var trs=document.querySelector('tbody').querySelectorAll('tr');
+				var hcbs=document.getElementById('all');
+				var bcbs=document.querySelector('tbody').querySelectorAll('input');
+				//(2).利用循环注册事件 完成表格隔行换色
+				for (var i=0;i<trs.length;i++) {
+					trs[i].onmousemove=function () {
+						this.className='mouse';
+					}
+					trs[i].onmouseout=function () {
+						this.className='';
+					}
+				}
+				//(3).点击全选/取消全选
+				hcbs.onclick=function () {
+					// this.checked它可以得到当前复选框的选中状态 如果是true 就是选中,如果是false 就是不选中
+					console.log(this.checked);
+					for(var i=0;i<bcbs.length;i++) {
+						bcbs[i].checked=this.checked;
+					}
+				}
+				//2.下面复选框需要全部选中,上面全选才能选中做法: 给下面所有复选框绑定点击事件
+				//	每次点击,都要循环查看下面所有的复选框是否有没选中的,如果有一个没选中的,上面全选就不选中
+				for(var i=0;i<bcbs.length;i++) {
+					bcbs[i].onclick=function () {
+						var flag=true;
+						//每次点击下面的复选框都要循环检查4个小按钮是否全被选中
+						for(var i=0;i<bcbs.length;i++) {
+							//只要有一个没选上 就给flag取反
+							if(!bcbs[i].checked) {
+								flag=false;
+								break; //退出for循环这样可以提高执行效率 因为只要有一个没有选择,其他就无需循环判断了
+							}
+							hcbs.checked=flag;
+						}
+					}
+				}
+			</script>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript">
+			//1.获取元素
+			var div = document.querySelector('div');
+			//2.注册事件 处理程序
+			var flag = 0;
+			div.onclick = function() {
+				if (flag == 0) {
+					//div.style里面的属性,采取驼峰命名法
+					this.style.backgroundColor = 'purple';
+					this.style.width='300px';
+					this.style.height='300px';
+					flag=1;
+				}
+				else {
+					this.style.backgroundColor='pink';
+					this.style.width='200px';
+					this.style.height='200px';
+					flag=0;
+				}
+
+			}
+		</script>
+	</body>
+</html>

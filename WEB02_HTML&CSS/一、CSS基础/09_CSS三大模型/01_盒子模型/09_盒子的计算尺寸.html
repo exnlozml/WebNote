@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒子的计算尺寸</title>
+		<style>
+			.first{
+				width: 100px;
+				height: 100px;
+				border: 5px solid red; /* 4个边框  110 5+5 */
+				padding: 10px; /* left right  10 + 10 = 130 */
+				margin:20px;   /* left right  20 + 20 = 170 */
+				background-color: red; 
+				/* 空间尺寸: width + border + padding + margin ; */
+				/* 内盒 实际尺寸: width + border + padding 130px ; */
+			}
+			
+			.news{
+				width: 59px;
+				height: 33px;
+				border: 1px solid #C1C1C1;
+				margin: 100px;
+				font-size: 16px;
+				color: #666;
+				line-height: 33px;
+				border-radius: 3px 0 0 3px;
+				padding-left: 15px;
+				/* 74+15=89 */
+				/* 74-15=59 为了保证盒子宽度不变 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first"></div>
+		<div class="news">新闻</div>
+	</body>
+</html>

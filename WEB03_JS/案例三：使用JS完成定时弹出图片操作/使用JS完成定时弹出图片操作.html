@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>使用JS完成定时弹出图片操作</title>
+		<link rel="stylesheet" href="1.css" />
+		<!--<style>
+			#father{
+				border: 0px solid red;
+				width: 1410px;
+				height: 2180px;
+				margin: auto;
+			}
+			#logo{
+				border: 0px solid black;
+				width: 1410px;
+				height: 50px;
+			}
+			.top{
+				border: 0px solid blue;
+				width: 468px;
+				height: 50px;
+				float: left;
+			}
+			#top{
+				padding-top:11px;
+				height: 39px;
+			}
+			#menu{
+				border: 0px solid gold;
+				width: 1410px;
+				height: 50px;
+				background-color: black;
+				margin-bottom: 10px;
+			}
+			ul li{
+				display: inline;
+				color: white;
+			}
+			#product{
+				border: 0px solid red;
+				width: 1410px;
+				height: 575px;
+				margin-top: 10px;
+			}
+			#product_top{
+				border: 0px solid blue;
+				widows: 1410px;
+				height: 73px;
+				
+			}
+			#product_bottom{
+				border: 0px solid green;
+				width: 1409px;
+				height: 500px;
+			}
+			#product_bottom_left{
+				border: 0px solid red;
+				width: 281px;
+				height: 500px;
+				float: left;
+			}
+			#product_bottom_right{
+				border: 0px solid blue;
+				width: 1124px;
+				height: 499px;
+				float: left;
+			}
+			#big{
+				border: 0px solid red;
+				width: 840px;
+				height: 100px;
+				float: left;
+			}
+			#bet{
+				border: 0px solid blue;
+				width: 280px;
+				height: 100px;
+				float: left;
+			}
+			.small{
+				border: 0px solid green;
+				width: 279px;
+				height: 397px;
+				float: left;
+			}
+			#bottom{
+				border: 0px solid blueviolet;
+				width: 1410px;
+				height: 75px;
+				padding-top: 20px;
+				text-align: center;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul li1{
+				display: inline;
+				color: blue;
+		</style>-->
+		<script type="text/javascript" src="1.js"></script>
+		<!--<script>
+			function init(){
+				//书写轮播图显示的定时操作
+				window.setInterval("changeImg()",3000);
+				
+				//1.设置显示广告图片的定时操作
+				time=setInterval("showAd()",3000);
+				
+			}
+			
+			//书写函数
+			var i=0;
+			function changeImg(){
+				i++;
+				//获取图片位置并设置src属性
+				document.getElementById("img1").src="../img/"+i+".png";
+				if(i==3){
+					i=0;
+				}
+			}
+			
+			//2.书写显示广告图片的函数
+			function showAd(){
+				//3.获取广告图片的位置
+				var adEle=document.getElementById("img2");
+				//4.修改广告图片元素里面的属性让其显示
+				adEle.style.display="block";
+				//5.清除显示图片的定时操作
+				clearInterval(time);
+				//6.设置隐藏图片的定时操作
+				setInterval("hiddenAd()",3000);
+			}
+			
+			//7.书写隐藏广告图片的函数
+			function hiddenAd(){
+				//8.设置广告图片并设置其style属性的display值为none
+				document.getElementById("img2").style.display="none";
+				//9.清除隐藏广告图片的定时操作
+				clearInterval(time);
+			}
+			
+		</script>-->
+	</head>
+	<body onload="init()">
+		<div id="father">
+			<!--定时弹出图片广告位置-->
+			<img src="../img/定时广告图.jpg" width="100%" id="img2" style="display: none " />
+			
+			
+			<!--1.logo部分-->
+			<div id="logo">
+				<div class="top">
+					<img src="../img/捕获.PNG" height="46px"/>
+				</div>
+				<div class="top">
+					<img src="../img/head.PNG" height="46px" />
+				</div>
+				<div class="top" id="top">
+					<a href="#">登录</a>
+					<a href="#">注册</a>
+					<a href="#">购物车</a>
+				</div>
+			</div>
+			
+			<!--2.导航栏部分-->
+			<div id="menu">
+				<ul>
+					<li style="font-size: 26px;">首页</li>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><li>手机数码</li></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><li>家用电器</li></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><li>鞋靴箱包</li></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><li>孕婴保健</li></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><li>奢侈品</li></a>
+				</ul>
+			</div>
+			<!--3.轮播图部分-->
+			<div id="">
+				<img src="../img/3.PNG" width="100%" id="img1" />
+			</div>
+			<!--4.最新商品-->
+			<div id="product">
+				<div id="product_top">
+					<span style="font-size: 28px;">最新商品</span>&nbsp;&nbsp;&nbsp;&nbsp;
+					<img src="../img/热门商品副.PNG" height="100%" />
+				</div>
+				<div id="product_bottom">
+					<div id="product_bottom_left">
+						<a href="https://item.jd.com/100002795959.html" /><img src="../img/ca2762256ec6f931.jpg" width="100%" height="100%"/>
+					</div>
+					<div id="product_bottom_right">
+						<div id="big">
+							<a href="https://list.jd.com/list.html?cat=9987,653,655" /><img src="../img/手机品牌.PNG" height="100%" width="100%" />
+						</div>
+						<div id="bet">
+							<a href="https://a.jd.com/?cateId=152" /><img src="../img/优惠卷.PNG" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100003717481.html" /><img src="../img/3a5f4b0e19e91cb4.jpg" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100002795957.html#crumb-wrap" /><img src="../img/6a62f53984f18318.jpg" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100004017011.html" /><img src="../img/738b1b7131377b78.jpg" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100000287113.html" /><img src="../img/819dcf182d743897.jpg" height="100%" width="100%" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--5.广告图片-->
+			<div id="">
+				<img src="../img/4.PNG" height="100%" width="100%" />
+			</div>
+			<!--6.热门商品-->
+			<div id="product">
+				<div id="product_top">
+					<span style="font-size: 28px;">最新商品</span>&nbsp;&nbsp;&nbsp;&nbsp;
+					<img src="../img/热门商品副.PNG" height="100%" />
+				</div>
+				<div id="product_bottom">
+					<div id="product_bottom_left">
+						<a href="https://item.jd.com/100002795959.html" /><img src="../img/ca2762256ec6f931.jpg" width="100%" height="100%"/>
+					</div>
+					<div id="product_bottom_right">
+						<div id="big">
+							<a href="https://list.jd.com/list.html?cat=9987,653,655" /><img src="../img/手机品牌.PNG" height="100%" width="100%" />
+						</div>
+						<div id="bet">
+							<a href="https://a.jd.com/?cateId=152" /><img src="../img/优惠卷.PNG" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100003717481.html" /><img src="../img/3a5f4b0e19e91cb4.jpg" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100002795957.html#crumb-wrap" /><img src="../img/6a62f53984f18318.jpg" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100004017011.html" /><img src="../img/738b1b7131377b78.jpg" height="100%" width="100%" />
+						</div>
+						<div class="small">
+							<a href="https://item.jd.com/100000287113.html" /><img src="../img/819dcf182d743897.jpg" height="100%" width="100%" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--7.广告图片-->
+			<div id="">
+				<img src="../img/7.PNG" height="100%" width="100%" />
+			</div>
+			<!--8.友情链接和版权信息-->
+			<div id="bottom">
+				<a href="#"><li1>联系我们</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>招贤纳士</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>法律声明</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>友情链接</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>支付方式</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>配送方式</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>服务声明</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><li1>广告声明</li1></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<p>
+					Copyright @ 2005-2019 黑马商城 版权所有
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

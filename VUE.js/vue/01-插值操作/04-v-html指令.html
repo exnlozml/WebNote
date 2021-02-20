@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+    </head>
+
+    <body>
+        <!-- 2.html结构 -->
+        <div id="app">
+            <p v-html="content"></p>
+            <p v-text="content"></p>
+        </div>
+        <!-- 1.开发环境版本，包含了有帮助的命令行警告 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            // 3.创建vue实例
+            var app = new Vue ({
+                el:"#app",
+                data:{
+                //   content:"黑马程序员"  
+                    content:"<a href='http://www.baidu.com'>百度</a>"
+                }
+            })
+        </script>
+    </body>
+</html>

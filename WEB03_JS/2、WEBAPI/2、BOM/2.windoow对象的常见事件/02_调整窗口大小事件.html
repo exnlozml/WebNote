@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //window.onresize是调整窗口大小加载事件，当触发时就调用的处理函数
+        //1.只要窗口大小发生像素变化。就会触发这个事件
+        //2.利用这个事件完成响应式布局、window.innerWidth 当前屏幕的宽度
+        window.addEventListener('load', function () {
+            var div = document.querySelector('div');
+            window.addEventListener('resize', function () {
+                console.log(window.innerWidth);
+
+                console.log("变化了");
+                if (window.innerWidth <= 800) {
+                    div.style.display = 'none';
+                } else {
+                    div.style.display = 'block'
+                }
+
+            })
+        })
+
+    </script>
+    <div></div>
+</body>

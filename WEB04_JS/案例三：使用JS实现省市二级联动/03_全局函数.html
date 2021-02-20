@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全局函数</title>
+		<script>
+			var str="张三";
+			/* alert(encodeURI(str));
+			alert(encodeURIComponent(str)); */
+			
+			/* alert(decodeURI(encodeURI(str)));//张三
+			alert(decodeURI(encodeURIComponent(str)));//张三 */
+			
+			var str1="http://www.itheima.cn";
+			// alert(encodeURI(str1));
+			// alert(encodeURIComponent(str1));
+			
+			/* alert(decodeURI(encodeURI(str)));//张三
+			alert(decodeURI(encodeURIComponent(str)));//张三 */
+			
+			var str2="alert('abc')";
+			/* alert(str2); */
+			eval(str2);//计算jsp字符串,并把它作为脚本代码执行
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

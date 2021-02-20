@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .color {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 作业需求：点击列表中的哪一项，那么该项的文字变成红色 -->
+  <div id="app">
+    <ul>
+      <li :class="{color: currentIndex === index }" 
+          v-for="(item,index) in movies" @click="click(index)">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+  <script src="/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        movies: ['海王', '花儿兄弟', '火影忍者', '进击的巨人'],
+        currentIndex: 0
+      },
+      methods: {
+        click: function (index) {
+          this.currentIndex = index;
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

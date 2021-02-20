@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>外边距合并</title>
+		<style>
+			/* 1.相邻块元素垂直外边距合并 
+				垂直的块级盒子 以最大的外边距为准 *
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+			div:first-child{
+				margin-bottom: 100px;
+			}
+			div:nth-child(2){
+				background-color: orange;
+				margin-top: 50px;
+			}
+			
+			*/
+		   
+		   
+			/* 2.嵌套块元素的垂直外边距的合并
+				解决方案:
+					可以为父元素定义1像素的上边框或上内边距
+					可以为父元素添加overf:hidden. */
+			.father{
+				width: 300px;
+				height: 300px;
+				background-color: #f00;
+				margin-top: 100px;
+				/* border: 1px solid #0000FF; 解决外边距合并(塌陷)问题 */
+				/* padding: 1px; */
+				overflow: hidden;
+			}
+			.son{
+				width: 200px;
+				height: 200px;
+				background-color: purple;
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</body>
+</html>

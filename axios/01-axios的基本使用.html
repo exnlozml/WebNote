@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click='btnClick'>网络请求</button>
+    <p>{{result}}</p>
+  </div>
+  <script src="../vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        result: '需要进行网络请求'
+      },
+      methods: {
+        btnClick() {
+          // 请求一: 不带参数
+          axios({
+            url: 'http://123.207.32.32:8000/home/multidata',
+            method: 'get'
+          }).then( res=> {
+            console.log(res);
+          })
+
+          // 请求二: 带参数
+          axios({
+            url: 'http://123.207.32.32:8000/home/data',
+            params: {
+              type: 'pop',
+              page: 1
+            },
+            method: 'get'
+          }).then( res=> {
+            console.log(res);
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

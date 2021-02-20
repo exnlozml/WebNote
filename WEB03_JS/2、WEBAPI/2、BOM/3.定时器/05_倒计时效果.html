@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            div {
+               margin: 200px;
+            }
+            span {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background-color: #333;
+                font-size: 20px;
+                color: #fff;
+                text-align: center;
+                line-height: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span class="hour">1</span>
+            <span class="minute">2</span>
+            <span class="second">3</span>
+            <button class="stop">停止</button>
+        </div>
+        
+        <script>
+            // 1.这个倒计时是不断变化的，因此需要定时器来自动变化（Interval）
+            // 2.三个黑色盒子里面分别存放时分秒
+            // 3.三个黑色盒子利用innerHTML放入计算的小时分钟秒数
+
+            //1.获取元素
+            var hour = document.querySelector('.hour'); //小时的黑色盒子
+            var minute = document.querySelector('.minute'); //分钟的黑色盒子
+            var second = document.querySelector('.second'); //秒数的黑色盒子
+            var inputTime = + new Date('2020-7-9 18:00:00');  //返回用户输入时间的总秒数
+            countDown(); //先调用一次这个函数，防止第一次刷新时页面有空白
+
+            //2.开启定时器
+            var startInterval = setInterval(countDown, 1000);
+            function countDown(time) {
+                var nowTime = + new Date(); //返回当前系统时间的总秒数
+                var times = ( inputTime - nowTime ) / 1000; //时间差
+                var h=parseInt(times / 60 / 60 % 24); //时
+                h = h < 10 ? '0' + h : h;
+                hour.innerHTML = h; //把剩余的小时给黑色的盒子
+                var m = parseInt(times / 60 % 60); //分
+                m = m < 10 ? '0' + m : m;
+                minute.innerHTML = m;
+                var s = parseInt(times % 60); //秒
+                s = s < 10 ? '0' + s : s;
+                second.innerHTML = s;
+            }
+
+            //3.暂停倒计时 ———— claerInterval清除定时器
+            var stop = document.querySelector('.stop');
+            stop.addEventListener('click', function() {
+                clearInterval(startInterval);
+            } );
+
+        </script>
+    </body>
+</html>

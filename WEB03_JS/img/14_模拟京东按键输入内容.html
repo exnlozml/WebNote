@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				margin: 100px auto;
+				width: 200px;
+				height: 100px;
+			}
+
+			input {
+				color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" value="手机" />
+		</div>
+
+		<script type="text/javascript">
+			// 核心思路： 检测用户是否按下了s 键，如果按下s 键，就把光标定位到搜索框里面
+			// 使用键盘事件对象里面的keyCode 判断用户按下的是否是s键
+			// 搜索框获得焦点： 使用 js 里面的 focus() 方法
+			var ipt = document.querySelector('input');
+			ipt.addEventListener('focus', function() {
+				if (this.value === '手机') {
+					this.value = '';
+				}
+				this.style.color = '#333';
+			})
+			ipt.addEventListener('blur', function() {
+				if (this.value === '') {
+					this.value = '手机';
+					this.style.color = '#ccc';
+				}
+			})
+			document.addEventListener('keyup', function(e) {
+				if (e.keyCode === 83) {
+					ipt.focus();
+				}
+			})
+		</script>
+	</body>
+</html>

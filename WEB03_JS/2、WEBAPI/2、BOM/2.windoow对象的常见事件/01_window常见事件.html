@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.window.onload 窗口加载事件,当文档内容全部加载完成会触发该事件，
+        //2.window.onload 传统注册事件。只能写一次。如果有多个。以最后一个为准
+        // window.onload = function () {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function () {
+        //         alert('点击我1！');
+        //     })
+        // }
+        //3.如果使用addEventListener则没有限制
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('点击我2！');
+            })
+        })
+
+        //load 等页面内容全部加载完毕， 包含页面 DOM元素 图片 flash css等等
+        //DOMContentLoaded（支持ie9及以上） 是DOM 加载完毕，不包含图片 falsh css 等就可以执行，加载速度比 load更快一些
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('点击我3！');
+            })
+        })
+    </script>
+    <button>点击</button>
+
+</body>
+
+</html>

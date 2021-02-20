@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function fn() {
+			var d1=+new Date();
+			var arry=[];
+			for(var i=0;i<1000;i++) {
+				arry.push('<div style="width: 100px; height: 2px; border: 1px solid blue;"></div>');
+			}
+			document.body.innerHTML=arry.join();
+			var d2=+new Date();
+			console.log(d2-d1);
+		}
+		fn();
+	</script>
+</html>

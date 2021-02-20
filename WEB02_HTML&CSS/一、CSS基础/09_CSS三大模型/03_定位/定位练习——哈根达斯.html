@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定位练习</title>
+		<style>
+			div{
+				width: 310px;
+				height: 190px;
+				margin: 50px auto;
+				border: 1px solid #ccc;
+				padding: 10px;
+				position: relative; /* 根据子绝父相最合适 */
+			}
+			.topIcon{
+				position: absolute; /* 绝对定位 不占有位置 */
+				top: 0;
+				left: 0;  /* 孩子加了绝对定位,如果父亲没有定位,以浏览器为准 */
+			}
+			.bottomIcon {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="../../../img/top_tu.gif" class="topIcon">
+			<img src="../../../img/adv.jpg" >
+			<img src="../../../img/br.gif" width="" class="bottomIcon" >
+			
+		</div>
+	</body>
+</html>

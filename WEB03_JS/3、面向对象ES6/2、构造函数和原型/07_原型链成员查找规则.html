@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        
+        <script>
+            // JavsScript的成员查找机制(规则)
+            // 1.当访问一个对象的属性(包括方法)时，首先查找这个对象自身有没有该属性
+            // 2.如果没有查找它的原型(也就是__proto__指向的prototype原型对象)
+            // 3.如果还没有就查找原型对象的原型(Object的原型对象)
+            // 4.依此类退一直找到Object为止(null)
+            // 5.__proto__对象原型的意义就在于为对象成员查找机制提供一个方向，或者说一条路线
+        
+            function Star(uname, age) {
+                this.uname = name;
+                this.age = age;
+            }
+            Star.prototype.sing = function () {
+                console.log('我会唱歌');
+            }
+            // Star.prototype.sex = '女';
+            // Object.prototype.sex = '男';
+            var ldh = new Star('刘德华', 18);
+            // ldh.sex = '男';
+            console.log(ldh.sex);
+            console.log(ldh.toString());
+        </script>
+    </body>
+</html>

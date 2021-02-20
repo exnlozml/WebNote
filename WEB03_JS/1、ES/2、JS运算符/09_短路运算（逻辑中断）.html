@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.用我们的布尔值参与的逻辑运算  true && false == false
+			//2.233 && 456 是值 或者是 表达式 参与逻辑运算符？
+			//3.逻辑与短路运算 如果表达式1结果为真 则返回表达式2
+			//如果表达式1结果为假 那么返回表达式1
+			console.log(123 && 456);//456
+			console.log(0 && 456);//0
+			console.log(0 && 1+2 && 456 *56789) ;//0
+			//如果有空的或者否定的为假 其余的是真 0 '' null undefined NaN
+			//4.逻辑或短路运算 如果表达式1 结果为真 则返回表达式1 如果表达式1 结果为假 则返回表达式2
+			console.log(123 || 456);//123
+			console.log(123 || 456 || 456 * 123);//123
+			console.log(0 || 1223);//1223
+			//逻辑中断很重要 它会影响我们程序运行结果
+			var num=0;
+			console.log(123 || num++);//123
+			console.log(num);//0  因为逻辑中断 到123时直接结束
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

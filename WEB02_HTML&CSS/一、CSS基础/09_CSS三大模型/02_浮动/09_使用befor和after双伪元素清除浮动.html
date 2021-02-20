@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>使用before和after双伪元素清楚浮动</title>
+		<style>
+			.box1 {
+				/* height: 200px;  很多情况下,我们父级盒子,不方便给高度 ，考虑孩子高度会变*/
+				width: 600px;
+				background-color: pink;
+			}
+
+			.box2 {
+				height: 200px;
+				width: 600px;
+				background-color: purple;
+			}
+
+			.son1 {
+				/* son1 和son2 是标准流,会撑开盒子 */
+				width: 150px;
+				height: 100px;
+				background-color: skyblue;
+				float: left;
+			}
+
+			.son2 {
+				width: 300px;
+				height: 100px;
+				background-color: hotpink;
+				float: left;
+			}
+
+			/* 但是如果son1 和 son2 都浮动了, 浮动元素不占有位置,
+				父亲有没有高度 此时底下盒子就会跑上来 */
+			.clearfix:before, .clearfix:after {
+				content: "";
+				display: table;  /* 触发bfc 防止外边距合并问题 */
+			}
+			.clearfix:after{
+				clear: both;
+			}
+			.clearfix{   /* ie6,7使用的方法 */
+				*zoom: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1 clearfix">
+			<div class="son1"></div>
+			<div class="son2"></div>
+		</div>
+		<div class="box2"></div>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            //一. 同步任务 
+            // 同步任务都在主线程上执行，形成一个执行线
+            
+            //二. 异步任务
+            // JS 的异步是通过回调函数实现的
+            // 一般人言，异步任务有以下三种类型
+            //1、普通事件。如 click、resize等
+            //2、资源加载。如 load、error等
+            //3、定时器，包括 setInterval、setTimeout等
+            // 异步任务相关回调函数添加到任务队列中(任务队列也成为消息队列)
+            
+            //三、执行机制
+            //1. 先执行执行栈中的同步任务
+            //2. 异步任务(回调函数)放入任务队列中
+            //3. 一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，
+            //   于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
+            //注意： 由于主线程不断的重复获得任务、执行任务、在获取任务、再执行，所以这种机制被称为 事件循环 (event loop)
+
+
+            //1. 第一个问题
+            // console.log(1);
+
+            // setTimeout(function() {
+            //     console.log(3);
+            // }, 1000);
+
+            // console.log(2);
+            
+            //2. 第二个问题
+            // 
+            
+            //3. 第三个问题
+            console.log(1);
+
+            document.onclick = function() {
+                console.log('click');
+                
+            }
+
+            console.log(2);
+            
+            setTimeout(function () {
+                console.log(3);
+                
+            }, 3000);
+            
+        </script>
+    </body>
+</html>

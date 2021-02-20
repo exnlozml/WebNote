@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				perspective: 500px;
+			}
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 100px auto;
+				transition: all 0.5s;
+			}
+			div:hover {
+				/* transform: translateX(100px); */
+				/* transform: translateY(100px); */
+				/* transform: translateZ(200px); */
+				/* 透视是眼睛到屏幕的距离  透视只是一种展示形式, 是有3D效果的意思
+				translateZ 是物体到屏幕的距离  Z  就是来控制物体近大远小的具体情况
+				translateZ越大, 我们看到的物体越近 */
+				/* transform: translate3d(x, y , z); x 和 y 可以是px,可以是%. z 只能是px */
+				transform: translate3d(100px,100px, 100px);
+			}
+			h2 {
+				transform: translate3d(0, 50px, 0);
+				transition: all 0.8s;
+			}
+			h2:hover {
+				transform: translate3d(0, 0, 0);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<h2>每一毫米的突破</h2>
+	</body>
+</html>

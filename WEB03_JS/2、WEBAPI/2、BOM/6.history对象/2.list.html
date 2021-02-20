@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>列表</title>
+    </head>
+    
+    <body>
+        <a href="1.index.html">点我去往首页</a>
+        <button>后退</button>
+        <script>
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function() {
+                // history.back(); // 后退
+                history.go(-1); // 后退一步
+            });
+        </script>
+    </body>
+</html>

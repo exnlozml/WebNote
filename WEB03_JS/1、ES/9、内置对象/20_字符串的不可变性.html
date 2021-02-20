@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//字符串的不可变性
+			var str='andy';
+			console.log(str);
+			str='red';
+			console.log(str);
+			//因为字符串的不可变,所以不要大量的拼接字符串
+			var str='';
+			for(var i=0;i<=100;i++) {
+				str+=i;
+			}
+			console.log(str);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

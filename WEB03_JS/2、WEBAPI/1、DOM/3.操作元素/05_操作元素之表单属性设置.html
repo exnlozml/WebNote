@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<input type="text" value="输入内容" />
+		<script type="text/javascript">
+			//1.获取元素
+			var btn=document.querySelector('button');
+			var ipt=document.querySelector('input');
+			//2.注册事件 处理程序
+			btn.onclick=function (){
+				//ipt.innerHTML='点击了'; 这个是 普通盒子 比如div标签里面的内容
+				//表单里面的值 文字内容是通过了 value 来修改的
+				ipt.value='被点击了';
+				//如果想要某个表单被禁用 不能再点击 disabled 我们想要这个按钮 button禁用
+				//btn.disabled=true;
+				this.disabled=true;
+				//this 指向的是事件函数的调用者 btn
+			}
+		</script>
+	</body>
+</html>

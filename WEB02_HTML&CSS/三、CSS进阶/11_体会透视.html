@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				perspective: 1000px; /* 视距  距离  眼睛到屏幕的距离 
+				视距越大  效果越不明显  视距越小  效果透视越明显*/
+			}
+			img {
+				margin: 100px 400px;
+				transition: all 1s;
+				transform-origin: left; /* 设置变形中心点 */
+			}
+			img:hover {
+				transform: rotateY(80deg);
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/1498446043198.png" width="300" alt="">
+	</body>
+</html>

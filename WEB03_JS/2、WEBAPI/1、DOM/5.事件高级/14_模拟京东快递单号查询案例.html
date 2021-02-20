@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>模拟京东快递单号查询</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: aquamarine;
+            }
+            .box {
+                border: 1px solid burlywood;
+                margin: 0 auto;
+                margin-top: 100px;
+                width: 300px;
+            }
+            .con {
+                border: 1px solid gray;
+                height: 25px;
+                margin-bottom: 10px;
+                margin-left: 5px;
+                margin-top: 12px;
+                width: 180px;
+                border-radius: 5px;
+                background-color: #fff;
+                line-height: 20px;
+                font-size: 20px;
+                display: none;
+            }
+            .number {
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="con"></div>
+            <input type="text" placeholder="请输入单号" class="number">
+        </div>
+        <script>
+            //1.快递单号输入内容时，上面大号盒子(con)显示(这里面的字号更大)
+            //2.表单检测用户输入，给表单添加键盘事件
+            //3.同时把快递单号里面的值(value)获取过来赋值给 con盒子(innerText)作为内容
+            //4.如果快递单号里面的内容为空，则隐藏大号字体盒子(con)盒子
+            //5.注意： keydown 和 keypress在文本框里的特点：他们两个事件触发的时候，文字还没有落入文本框中
+            //6.keyup事件触发的时候，文字已经落入文本框里面了
+            var search = document.querySelector('input');
+            var con = document.querySelector('.con');
+            search.addEventListener('keyup', function(){
+                if(this.value == '') {
+                   con.style.display = "none";
+                } else {
+                    con.style.display = "block";
+                    con.innerText = this.value;
+                }
+            })
+            //7.当失去焦点的时候，就隐藏con这个盒子
+            search.addEventListener('blur',function(){
+                con.style.display = "none";
+            })
+            //8.当获得焦点的时候，并且文本框内容不为空，就显示这个盒子
+            search.addEventListener('focus',function(){
+                if(this.value !== '') {
+                    con.style.display = "block";
+                }
+            })
+        </script>
+    </body>
+</html>

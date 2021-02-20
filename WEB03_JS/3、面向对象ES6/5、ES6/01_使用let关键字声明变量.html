@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        
+        <script>
+            // let关键字就是用来声明变量的
+            // 使用let关键字声明的变量具有块级作用域
+           
+            // let a = 10;
+            // console.log(a);
+
+            // if(true) {
+            //     let b = 20;
+            //     console.log(b);
+            //     if(true) {
+            //         let c = 30;
+            //     }
+            //     console.log(c);
+            // }
+            // console.log(b);
+            
+            // 1.在一个大括号中 使用let声明的变量才具有块级作用域
+            // var 不具备这个特点
+
+            // if(true) {
+            //     let num = 100;
+            //     var abc = 200;
+            // }
+            // console.log(abc);
+            // console.log(num);
+
+            // 2.防止循环变量变成全局变量
+            // for(let i = 0; i < 2;i++) {
+
+            // } 
+            // console.log(i);
+
+            // 3.使用let声明的变量没有变量提示
+            // console.log(a);
+            // let a = 10;
+
+            // 4.使用let关键字声明的变量具有暂时性死区特性
+            var num = 10;
+            if(true) {
+                console.log(num);
+                let num = 100;
+            }
+        </script>
+    </body>
+</html>

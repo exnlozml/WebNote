@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//格式化年月日星期
+			var date= new Date();
+			console.log(date.getFullYear()); // 返回当前日期的年 2019
+			console.log(date.getMonth()); // 月份 返回的月份小1个月  记得月份+1
+			console.log(date.getDate()); // 返回的是 几号
+			console.log(date.getDay()); //4 周一返回1 周六返回6 周日返回0
+			//我们写一个2019年5月1日星期三
+			var year=date.getFullYear();
+			var month=date.getMonth()+1;
+			var dates=date.getDate();
+			
+			var arr=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+			var day=date.getDay();
+			console.log('今天是：'+year+'年'+month+'月'+dates+'日 '+arr[day]);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

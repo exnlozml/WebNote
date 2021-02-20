@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绝对定位脱标</title>
+		<style>
+			div:first-child {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;/* 定位模式 绝对定位 */
+				top: 20px;
+				left: 20px;
+				/* 绝对定位完全脱标的,它不占有位置 */
+			}
+			div:last-of-type {  /* 重点,此处last-child无效,last-of-type表示同类型的最后一个元素 */
+				width: 200px;
+				height: 150px;
+				background-color: purple;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+	</body>
+</html>

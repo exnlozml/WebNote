@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.构造函数  明星 泛指的某一大类  它类似于java中的 类(class)
+			function Star(name, age, sex) {
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+				this.sing = function(song) {
+					console.log(song);
+				}
+			}
+
+			//2.对象 特指 是一个具体的事物 刘德华 == {name: "刘德华", age: 66, sex: "男", sing: ƒ}
+			var ldh = new Star('刘德华', 66, '男');
+			console.log(ldh);
+
+			//3.利用构造函数创建对象的过程也成为对象实例化
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

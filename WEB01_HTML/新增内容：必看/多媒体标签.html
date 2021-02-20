@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>多媒体标签</title>
+	</head>
+	<body>
+		<!-- 1.embed 标签定义嵌入的内容 -->
+		<embed src="//player.video.iqiyi.com/ad28d80cd2f7cd77ce9cdd6ff2c76a8e/0/0/w_19s5lde8wl.swf-albumId=33907766009-tvId=33907766009-isPurchase=0-cnId=undefined" allowFullScreen="true" quality="high" width="480" height="350" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+		<br/><br/>
+		
+		<!-- 2.audio 标签来解决音频问题 -->
+		<!-- <audio src="梁咏琪%20-%20胆小鬼.mp3" autoplay="autoplay" controls="controls" loop="2"></audio> -->
+		<!-- autoplay 自动播放 ；controls 显示控件；loop 循环次数，-1(loop)为无限循环-->
+		<!-- 为了浏览器兼容，我们需要做三种声音文件 ogg mp3 wav -->
+		<audio controls="controls" autoplay="autoplay">
+			<source src="梁咏琪%20-%20胆小鬼.mp3"></source>
+			<source src="music.ogg"></source>
+			<source src=".wav"></source>
+			您的浏览器不支持播放声音
+		</audio>
+		<br/><br/>
+		
+		<!-- 2.video 标签
+			 支持ogg mpeg4 webm -->
+		<!-- <video src="mp4.mp4" autoplay="autoplay" controls="controls"></video> -->
+		<video controls="controls" autoplay="autoplay">
+			<source src="mp4.mp4"></source>
+			<source src="movie04.ogg"></source>
+			您的浏览器不支持视频播放
+		</video>
+	</body>
+</html>

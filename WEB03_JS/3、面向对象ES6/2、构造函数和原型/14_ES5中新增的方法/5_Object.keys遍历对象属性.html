@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.Keys() 获取对象自身所有的属性，返回一个由属性名组成的数组
+        var obj = {
+            id: 1,
+            name: '小米',
+            price: 9000
+        };
+        var arr = Object.keys(obj);
+        console.log(arr);
+        arr.forEach(function(value) {
+            console.log(value);
+        })
+    </script>
+</body>
+
+</html>

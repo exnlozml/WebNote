@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body,
+		html,
+		#allmap {
+			width: 100%;
+			height: 90%;
+			overflow: hidden;
+			margin: 0;
+			font-family: "微软雅黑";
+		}
+		#bigger, #move, #smaller {
+			cursor: pointer;
+			float: left;
+			margin: 5px 50px 5px 50px;
+			border: 1px solid red;
+			background-color: antiquewhite;
+		}
+	</style>
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=F9pA6gQsyzMAQR2hSM5lmDr31nm1aRKw"></script>
+	<title>地图展示</title>
+</head>
+
+<body onload="InitMap();">
+	<div id="bigger" onclick="biggerView()">放大</div>
+	<div id="move" onclick="moveView()">移动</div>
+	<div id="smaller" onclick="smallerView()">缩小</div>
+	<div id="allmap"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+	var map = new BMap.Map("allmap"); // 地图对象
+	var oldLongitude; // 保存改变之后的经度
+	// 地图初始化
+	function InitMap() {
+		var point = new BMap.Point(104.06, 30.67); // 设置中心点
+		map.centerAndZoom(point, 15); // 缩放级别
+		map.enableScrollWheelZoom(true); // 开启鼠标滚动对地图进行缩放
+		var marker = new BMap.Marker(point); // 创建标注
+		map.addOverlay(marker); // 将标注添加到地图中
+		marker = new BMap.Marker(new BMap.Point(104.08, 30.67));
+		map.addOverlay(marker);
+	}
+
+	// 放大
+	function biggerView() {
+		map.zoomTo(map.getZoom() + 1);
+	}
+
+	// 移动
+	function moveView() {
+		
+		if(oldLongitude == 104.06) {
+			map.panTo(new BMap.Point(104.08, 30.67));
+			oldLongitude = 104.08;
+			console.log(2);
+		} else {
+			map.panTo(new BMap.Point(104.06, 30.67));
+			oldLongitude = 104.06;
+			console.log(3);
+		}
+	}
+
+
+	// 缩小
+	function smallerView() {
+		map.zoomTo(map.getZoom() - 1);
+	}
+
+	//根据原始数据计算中心坐标和缩放级别，并为地图设置中心坐标和缩放级别。  
+	function setZoom(points) {
+      if (points.length > 0) {
+        var maxLng = points[0].lng;
+        var minLng = points[0].lng;
+        var maxLat = points[0].lat;
+        var minLat = points[0].lat;
+        var res;
+        for (var i = points.length - 1; i >= 0; i--) {
+          res = points[i];
+          if (res.lng > maxLng) maxLng = res.lng;
+          if (res.lng < minLng) minLng = res.lng;
+          if (res.lat > maxLat) maxLat = res.lat;
+          if (res.lat < minLat) minLat = res.lat;
+        };
+        var cenLng = (parseFloat(maxLng) + parseFloat(minLng)) / 2;
+        var cenLat = (parseFloat(maxLat) + parseFloat(minLat)) / 2;
+        var zoom = getZoom(maxLng, minLng, maxLat, minLat);
+        map.centerAndZoom(new BMap.Point(cenLng, cenLat), zoom);
+      } else {
+        //没有坐标，显示全中国  
+        map.centerAndZoom(new BMap.Point(103.388611, 35.563611), 5);
+      };
+      console.log('{'+cenLng+','+cenLat+'},'+zoom);
+    }
+    //算出中心点坐标
+    function getZoom(maxLng, minLng, maxLat, minLat) {
+      var zoom = ["50", "100", "200", "500", "1000", "2000", "5000", "10000", "20000", "25000", "50000", "100000",
+        "200000", "500000", "1000000", "2000000"
+      ]; //级别18到3。  
+      var pointA = new BMap.Point(maxLng, maxLat); // 创建点坐标A  
+      var pointB = new BMap.Point(minLng, minLat); // 创建点坐标B  
+      var distance = map.getDistance(pointA, pointB).toFixed(1); //获取两点距离,保留小数点后两位  
+      for (var i = 0, zoomLen = zoom.length; i < zoomLen; i++) {
+        if (zoom[i] - distance > 0) {
+          return 18 - i + 3; //之所以会多3，是因为地图范围常常是比例尺距离的10倍以上。所以级别会增加3。  
+        }
+      };
+    }
+
+    var points =  [
+        {
+          lng: 118.404,
+          lat: 39.915,
+        },
+        {
+          lng: 117.506,
+          lat: 40.225,
+        },
+        {
+          lng: 117.201,
+          lat: 40.978,
+        },
+        {
+          lng: 116.799,
+          lat: 41.228,
+        },
+        {
+          lng: 116.299,
+          lat: 42.228,
+        },
+        {
+          lng: 115.801,
+          lat: 42.504,
+        },
+      ]
+    setZoom(points)
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <a href="http://www.bilibili.com">超链接触发pageshow</a>
+        <script>
+            // 下面三种情况都会刷新页面触发load事件
+            // 1.a标签的超链接
+            // 2.F5或者刷新按钮(强制刷新)
+            // 3.前进后退按钮
+            window.addEventListener('pageshow',function() {
+                alert(11);
+            })
+            // pageshow 这个事件在页面显示时触发，无论页面是否来自缓存（火狐）。在重新加载页面中，pageshow会在load事件触发后出发；
+            // 根据事件对象中的persited来判断是否缓存中的页面触发的ageshow事件
+        </script>
+    </body>
+</html>

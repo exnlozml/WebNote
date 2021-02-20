@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			section {
+				width: 450px;
+				height: 300px;
+				border: 1px solid #000;
+				margin: 100px auto;
+				background: url(img/3.jpg) no-repeat;
+				position: relative;
+				perspective: 1000px;  /* 给父盒子添加透视效果 */
+			}
+			.door-l,
+			.door-r {
+				position: absolute;
+				top: 0;
+				width: 50%;
+				height: 100%;
+				background: url(img/bg.png);
+				transition: all 1s; /* 两个门都做过渡 */
+			}
+			.door-l {
+				left: 0;
+				border-right: 1px solid #000;
+				transform-origin: left;  /* 左侧盒子按左边翻转 */
+			}
+			.door-r {
+				right: 0;
+				border-left: 1px solid #000;
+				transform-origin: right; /* 右侧盒子按右边翻转 */
+			}
+			.door-l::before,
+			.door-r::before { /* 伪元素  就是插入一个元素(标签) */
+				content: "";
+				position: absolute;
+				top: 50%;
+				width: 20px;
+				height: 20px;
+				border: 1px solid #000;
+				border-radius: 50%; /* 圆角 */
+				transform: translateY(-50%);  /* translate 如果是% 就是自己的一半 */
+			}
+			.door-l::before {
+				right: 5px;
+			}
+			.door-r::before { /* 伪元素  就是插入一个元素(标签) */
+				left: 5px;
+			}
+			/* 鼠标经过section盒子, 两个门盒子翻转 */
+			section:hover .door-l {
+				transform: rotateY(-130deg);  /* 因为往左边翻动,所以是负值 */
+			}
+			section:hover .door-r {
+				transform: rotateY(130deg);  /* 因为往右边翻动,所以是正值 */
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div class="door-l"></div>
+			<div class="door-r"></div>
+		</section>
+	</body>
+</html>

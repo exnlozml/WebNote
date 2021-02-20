@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>仿新浪固定头部和广告</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.top {
+				height: 44px;
+				width: 100%; /* 固定定位的盒子一定要写宽和高,除非有内容撑开不用写 */
+				background: url(../../../img/top.png) no-repeat top center;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+			.ad-l,
+			.ad-r {
+				position: fixed;
+				top:100px;
+			}
+			.ad-l {
+				left: 0;
+			}
+			.ad-r {
+				right: 0;
+			}
+			.box {
+				width: 1002px;
+				margin: 44px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top">
+			<div class="ad-l"><img src="../../../img/ad-l.png"></div>
+			<div class="ad-r"><img src="../../../img/ad-r.png"></div>
+		</div>
+		<div class="box">
+			<img src="../../../img/box.png" height="1760" width="1002" alt="">
+		</div>
+	</body>
+</html>

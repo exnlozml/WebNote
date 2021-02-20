@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">删除</button>
+		<ul>
+			<li>熊大</li>
+			<li>熊二</li>
+			<li>光头强</li>
+		</ul>
+		<script type="text/javascript">
+			//1.获取元素
+			var ul=document.querySelector('ul');
+			var btn=document.querySelector('button');
+			//2.删除元素 node.removeChild(child)
+			// ul.removeChild(ul.children[0]);
+			//3.点击按钮依次删除里面的孩子
+			btn.onclick=function() {
+				if (ul.children.length==0) {
+					this.disabled=true;
+				}
+				else {
+					ul.removeChild(ul.children[0]);
+				}
+			}
+		</script>
+	</body>
+</html>

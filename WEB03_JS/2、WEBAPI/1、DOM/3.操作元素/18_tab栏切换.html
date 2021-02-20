@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				list-style-type: none;
+			}
+
+			.tab {
+				width: 978px;
+				margin: 100px auto;
+			}
+
+			.tab_list {
+				height: 39px;
+				border: 1px solid #ccc;
+				background-color: #f1f1f1;
+			}
+
+			.tab_list li {
+				float: left;
+				height: 39px;
+				line-height: 39px;
+				padding: 0 20px;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.tab_list .current {
+				background-color: #c81623;
+				color: #fff;
+			}
+
+			.item {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tab">
+			<div class="tab_list">
+				<ul>
+					<li class="current">商品介绍</li>
+					<li>规格与包装</li>
+					<li>售后保障</li>
+					<li>商品评价(5000)</li>
+					<li>手机社区</li>
+				</ul>
+			</div>
+			<div class="tab_con">
+				<div class="item" style="display: block;">
+					商品介绍模块内容
+				</div>
+				<div class="item">
+					规格与包装模块内容
+				</div>
+				<div class="item">
+					售后保障模块内容
+				</div>
+				<div class="item">
+					商品评价模块内容
+				</div>
+				<div class="item">
+					手机社区模块内容
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//1. 上面的模块选项卡, 点击某一个,当前这一个底色会是红色, 其余不变(拍他思想) 修改类名的方式
+			//(1) 获取元素
+			var tab_list = document.querySelector('.tab_list');
+			var lis = document.querySelectorAll('li');
+			var items=document.querySelectorAll('.item');
+			
+			//(2) for循环绑定点击事件
+			for (var i = 0; i < lis.length; i++) {
+				//开始给五个li设置索引号
+				lis[i].setAttribute('index',i);
+				lis[i].onclick = function() {
+					//先清除所有li的颜色
+					for (var i = 0; i < lis.length; i++) {
+						lis[i].className = '';
+					}
+					//再给对应的li类名
+					this.className = 'current';
+					
+					//2.下面显示内容的模块,会随上面的选项卡变化,所以下面的模块变化写到点击事件里面
+					var index=this.getAttribute('index');
+					//让其他的item 这些div隐藏
+					for (var i=0;i<items.length;i++) {
+						items[i].style.display='none';
+					}
+					//设置对应的item显示
+					items[index].style.display='block';
+				}
+			}
+			
+		</script>
+	</body>
+</html>

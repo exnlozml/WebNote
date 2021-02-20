@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+        // 正则表达式在js中的使用
+
+        // 1.利用 RegExp 对象来创建 正则表达式
+        var regexp = new RegExp(/123/);
+        console.log(regexp);
+
+        // 2.利用字面量创建正则表达式
+        var rg = /123/;
+        // 3.test方法用来检测字符串是否符合正则表达式的规范
+        console.log(rg.test(123));
+        console.log(rg.test('abc'));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div getTime="20" data-index="2" data-list-name="andy"></div>
+		<script type="text/javascript">
+			var div=document.querySelector('div');
+			console.log(div.getAttribute('getTime'));
+			//h5自定义属性命名规则 data-属性名
+			div.setAttribute('date-time',20);
+			//1.兼容性获取
+			console.log(div.getAttribute('data-index'));
+			console.log(div.getAttribute('data-list-name'));
+			//2.H5新增的获取自定义属性方法 
+			//element.dataset.属性名 或 element.dataset['属性名']
+			//dataset是一个集合,里面存放了所以以data开头的自定义属性
+			console.log(div.dataset);
+			console.log(div.dataset.index);
+			console.log(div.dataset['index']);
+			//如果自定义属性里面有多个-链接的单词, 我们获取的时候采取 驼峰命名法
+			console.log(div.dataset.listName);
+			console.log(div.dataset['listName']);
+		</script>
+	</body>
+</html>

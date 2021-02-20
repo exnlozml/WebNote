@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格隔行换色</title>
+		<script>
+			window.onload = function(){
+				//1.获取表格
+				var tblEle=document.getElementById("tbl");
+				//2.获取表格中tbody里面的行数(长度)
+				var len=tblEle.tBodies[0].rows.length;
+				//alert(len);
+				//3.对tbody里面的行进行遍历
+				for(var i=0;i<len;i++){
+					if(i%2==0){
+						//4.对偶数行设置背景颜色
+						tblEle.tBodies[0].rows[i].style.backgroundColor="pink";
+					}
+					else{
+						//5.对奇数行设置背景颜色
+						tblEle.tBodies[0].rows[i].style.backgroundColor="gold";
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1" width="500" height="50" id="tbl" align="center">
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<th>张三</th>
+					<th>22</th>
+				</tr>
+				<tr>
+					<th>2</th>
+					<th>李四</th>
+					<th>25</th>
+				</tr>
+				<tr>
+					<th>3</th>
+					<th>王五</th>
+					<th>27</th>
+				</tr>
+				<tr>
+					<th>4</th>
+					<th>赵六</th>
+					<th>29</th>
+				</tr>
+				<tr>
+					<th>5</th>
+					<th>田七</th>
+					<th>30</th>
+				</tr>
+				<tr>
+					<th>6</th>
+					<th>汾九</th>
+					<th>20</th>
+				</tr>
+			</tbody>
+			
+		</table>
+	</body>
+</html>

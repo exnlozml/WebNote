@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            var arr = ['pink', 'blue', 'gray', 'red'];
+            // 1.forEach迭代 遍历
+            // arr.forEach(function(value) {
+            //     if(value == 'blue') {
+            //         console.log(1);
+            //         return true; // 在 forEach 里面 return不会终止迭代
+            //     }
+            //     console.log(11);
+            // })
+            
+            // 如果查询数组中唯一的元素，用some方法更合适
+            arr.some(function(value) {
+                if(value == 'blue') {
+                    console.log(1);
+                    return true; // 在 some 里面 return true会终止迭代 效率更高
+                }
+                console.log(11);
+            })
+
+            // arr.filter(function(value) {
+            //     if(value == 'blue') {
+            //         console.log(1);
+            //         return true; // 在 filter 里面 return 不会终止迭代 效率更高
+            //     }
+            //     console.log(11);
+            // })
+        </script>
+    </body>
+</html>

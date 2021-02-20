@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .search {
+            height: 30px;
+            width: 490px;
+            margin: 0 auto;
+        }
+
+        span {
+            font-size: 15px;
+        }
+
+        input {
+            width: 50px;
+        }
+
+        .tab {
+            height: 300px;
+            width: 300px;
+            margin: 10px auto 0 auto;
+        }
+
+        table {
+            border: 1px solid pink;
+            width: 100%;
+            background-color: antiquewhite;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        td:first-child {
+            width: 60px;
+        }
+
+        td:nth-child(2) {
+            width: 150px;
+        }
+
+        thead {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        tbody {
+            font-size: 18px;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <span>按价格查询：</span>
+        <input type="text" id="price_min">
+        <span>-</span>
+        <input type="text" id="price_max">
+        <button id="price_search">搜索</button>
+        <span>按商品名称查询：</span>
+        <input type="text" id="name">
+        <button id="name_search">查询</button>
+    </div>
+    <div class="tab">
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>产品名称</td>
+                    <td>价格</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 利用新增数组方法操作数据
+        var data = [{
+            id: 1,
+            name: 'iphone',
+            price: 9999
+        }, {
+            id: 2,
+            name: 'samsung',
+            price: 5999
+        }, {
+            id: 3,
+            name: 'meizu',
+            price: 2999
+        }, {
+            id: 4,
+            name: 'huawei',
+            price: 4999
+        },];
+        // 1.获取相应元素
+        var tbody = document.querySelector('tbody');
+        var pmin = document.querySelector('#price_min');
+        var pmax = document.querySelector('#price_max');
+        var psearch = document.querySelector('#price_search');
+        var pname = document.querySelector('#name');
+        var nsearch = document.querySelector('#name_search');
+        // 2.把数据渲染到页面中
+        setData(data);
+        function setData(mydata) {
+            // 先清空原tbody的数据
+            tbody.innerHTML = '';
+            mydata.forEach(function (value) {
+                // console.log(value);
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.name + '</td><td>' + value.price + '</td>'
+                tbody.appendChild(tr);
+            })
+        }
+
+        // 3.按价格筛选商品
+        // 点击查询按钮，根据商品价格去筛选
+        psearch.addEventListener('click', function () {
+            var newData = data.filter(function (value) {
+                return value.price <= pmax.value && value.price >= pmin.value;
+            })
+            setData(newData);
+        })
+        
+        // 4.按商品名称查询
+        // 如果查询数组中唯一的元素，用some方法更合适，因为它找到这个元素，就不在进行循环，效率更高
+        nsearch.addEventListener('click', function() {
+            var arr = [];
+            data.some(function(value) {
+                if(value.name === pname.value ){
+                    // console.log(value);
+                    arr.push(value);
+                    return true;// return 后面必须写true
+                }
+            })
+            // 把拿到的数据渲染到页面中
+            setData(arr);
+        })
+    </script>
+</body>
+
+</html>

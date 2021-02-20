@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 父组件模板 -->
+  <div id="app"  >
+    {{total}}
+    <cpn @decrement="totalUpdate" @increment="totalUpdate"></cpn>
+  </div>
+
+  <!-- 子组件模板 -->
+  <template id="cpn">
+    <div>
+      <button @click="decrement">-</button>
+      <button @click="increment">+</button>
+    </div>
+  </template>
+  <script src="/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    // 要求:
+    // 1.两个按钮+1和-1, 点击后修改counter
+    // 2.整个操作过程还是在子组件中完成, 但是之后的展示交给父组件
+    // 3.需要将子组件中的counter, 传给父组件中的某个属性, 比如total
+    
+    // 子组件
+    const cpn = {
+      template: '#cpn',
+      data() {
+        return {
+          counter: 0
+        }
+      },
+      methods: {
+        decrement() {
+          this.counter--;
+          this.$emit('decrement', this.counter);
+        },
+        increment() {
+          this.counter++;
+          this.$emit('increment', this.counter);
+        }
+      },
+    }
+    
+    // 父组件
+    const vm = new Vue({
+      el: '#app',                                                                                                                                                                                                             
+      data: {
+        total: 0
+      },
+      methods: {
+        totalUpdate(counter) {
+          this.total = counter;
+        }
+      },
+      components: {
+        cpn
+      }
+    });
+  </script>
+</body>
+
+</html>

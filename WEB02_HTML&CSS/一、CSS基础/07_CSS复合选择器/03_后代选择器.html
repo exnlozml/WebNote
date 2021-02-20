@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后代选择器</title>
+		<!-- 用来选择元素或元素组的后代，其写法就是把外层标签写在前面，内层标签写在后面，中间用空格分隔。 -->
+		<!-- 如 div p -->
+		<style>
+			div p{
+				color: #FF0000;
+			}
+			.jianli p{
+				color: #FFC0CB;
+			}
+		</style>
+	</head>
+	<body>
+		<p>王者荣耀</p>
+		<div class="jianli">
+			<p>王思聪</p>
+		</div>
+		<div>
+			<p>王宝强</p>
+		</div>
+		<p></p>
+	</body>
+</html>

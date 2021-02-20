@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素的显示和隐藏</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+			div:first-child {
+				 /* display: none; 隐藏元素 ，看不见了而已，但是元素还是存在的
+				 但不保留位置  block显示*/
+				 visibility: hidden; /* 隐藏元素 它和display最大的区别是保留位置
+				  visable显示*/
+			}
+			div:last-of-type {
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+</html>

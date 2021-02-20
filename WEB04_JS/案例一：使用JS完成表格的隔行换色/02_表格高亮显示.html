@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格高亮显示</title>
+		<script>
+			function changeColor(id,flag){
+				if(flag=="over"){
+					document.getElementById(id).style.backgroundColor="pink";
+				}
+				else if(flag=="out"){
+					document.getElementById(id).style.backgroundColor="white";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1" width="500px" height="50px" align="center">
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr onmouseover="changeColor('tr1','over')" id="tr1" onmouseout="changeColor('tr1','out')">
+					<th>1</th>
+					<th>张三</th>
+					<th>22</th>
+				</tr>
+				<tr onmouseover="changeColor('tr2','over')" id="tr2" onmouseout="changeColor('tr2','out')">
+					<th>2</th>
+					<th>李四</th>
+					<th>25</th>
+				</tr>
+				<tr onmouseover="changeColor('tr3','over')" id="tr3" onmouseout="changeColor('tr3','out')">
+					<th>3</th>
+					<th>王五</th>
+					<th>27</th>
+				</tr>
+				<tr onmouseover="changeColor('tr4','over')" id="tr4" onmouseout="changeColor('tr4','out')">
+					<th>4</th>
+					<th>赵六</th>
+					<th>29</th>
+				</tr>
+				<tr onmouseover="changeColor('tr5','over')" id="tr5" onmouseout="changeColor('tr5','out')">
+					<th>5</th>
+					<th>田七</th>
+					<th>30</th>
+				</tr>
+				<tr onmouseover="changeColor('tr6','over')" id="tr6" onmouseout="changeColor('tr6','out')">
+					<th>6</th>
+					<th>汾九</th>
+					<th>20</th>
+				</tr>
+			</tbody>
+			
+		</table>
+	</body>
+</html>

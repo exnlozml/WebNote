@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>结构伪类选择器</title>
+		<style>
+			/* li:first-child{    选择第一个孩子
+				font-size: 16px;
+				color: red;
+			}
+			li:last-child{     选择第二个孩子
+				font-size: 16px;
+				color: orange;
+			}
+			li:nth-child(4){    选择第四个孩子
+				font-size: 16px;
+				color: blue;
+			} */
+			
+			
+			/* li:nth-child(even){    可以选择所有的even 奇数 的孩子标签 
+				color: pink;
+			}
+			li:nth-child(odd){    可以选择所有的odd 偶数 的孩子标签
+				color: green;
+			} */
+			
+			
+			/* li:nth-child(2n+1){    选择第1,3,5.7个孩子 
+				color: red;
+			}
+			li:nth-child(n+1){   选择第4个孩子
+				color: blue;
+			} */
+			
+			
+			li:nth-last-child(even){ /* 从最后一个孩子开始数 ，选择第8,6,4,2个孩子*/
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>第一个孩子</li>
+			<li>第二个孩子</li>
+			<li>第三个孩子</li>
+			<li>第四个孩子</li>
+			<li>第五个孩子</li>
+			<li>第六个孩子</li>
+			<li>第七个孩子</li>
+			<li>第八个孩子</li>
+		</ul>
+	</body>
+</html>

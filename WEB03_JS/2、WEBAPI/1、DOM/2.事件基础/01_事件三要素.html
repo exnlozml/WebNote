@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" id="btn">唐不虎</button>
+		<script type="text/javascript">
+			//点击一个按钮,弹出对话框
+			//1.事件是由三部分组成 事件源 事件类型 事件处理程序
+			//(1) 事件源  事件被触发的对象  谁  按钮
+			var btn=document.getElementById('btn');
+			//(2) 事件类型  如何触发 什么事件 比如鼠标点击(onclick) 还是鼠标经过 还是键盘按下
+			//(3) 事件处理程序  通过一个函数赋值的方式 完成
+			btn.onclick=function(){
+				alert('点秋香');
+			}
+		</script>
+	</body>
+</html>

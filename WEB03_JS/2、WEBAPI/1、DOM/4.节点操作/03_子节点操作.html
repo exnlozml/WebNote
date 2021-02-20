@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 节点的优点 -->
+		<ul>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>我是li</li>
+		</ul>
+		<ol>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>我是li</li>
+			<li>我是li</li>
+		</ol>
+		<div class="demo">
+			<div class="box">
+				<span class="erweima">×</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//DOM提供的方法(API) 获取
+			var ul=document.querySelector('ul');
+			var lis=ul.querySelectorAll('li');
+			//1.子节点 childNodes所有的子节点包含元素节点 文本节点 等等
+			console.log(ul.childNodes);
+			console.log(ul.childNodes[0].nodeType);
+			console.log(ul.childNodes[1].nodeType);
+			//2.children 获取所以得子元素节点 也是我们实际开发中常用的
+			console.log(ul.children);
+		</script>
+	</body>
+</html>

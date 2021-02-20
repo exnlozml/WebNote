@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.替换字符 replace('被替换的字符','替换为的字符') 只会替换第一个字符
+			var str='andyandy';
+			console.log(str.replace('a','b'));
+			//有一个字符串'abcoefxyozzopp' 要求把里面所有的 o 替换为 *
+			var str1='abcoefxyozzopp';
+			while(str1.indexOf('o')!==-1) {
+				str1=str1.replace('o','*');
+			}
+			console.log(str1);
+			
+			//2.字符转换为数组 split('分隔符') 前面我们学过 join 把数组转换为字符串
+			//分隔符取决于字符串是用什么隔开,例: 'red,pink,blue'  是用逗号隔开的
+			var str2='red,pink,blue';
+			console.log(str2.split(','));
+			var str3='red&pink&blue';
+			console.log(str3.split('&'));
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

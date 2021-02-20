@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>section元素</title>
+	</head>
+	<body>
+		<!-- 对页面上的内容进行分块，或对文章进行分段， -->
+		<!-- 1.不要将section元素作为设置样式的容器，那是div的工作
+			 2.如果其他元素更符合使用条件，不要使用section元素
+			 3.不要为没有标题内容的区块使用section元素 -->
+		<section>
+			<h1>苹果</h1>
+			<p>这是一个苹果，可以吃。而且很好吃</p>
+		</section>
+		
+		<article>
+			<h1>苹果</h1>
+			<p>这是一个苹果，可以吃。而且很好吃</p>
+			<section>
+				<h2>红富士</h2>
+				<p>这是一种外表很红的苹果</p>
+			</section>
+		</article>
+		
+		<!-- section元素强调分块或分段，而article元素强调独立性 -->
+		<section>
+			<h1>苹果</h1>
+			<article>
+				<h2>红富士</h2>
+				<p>内容</p>
+			</article>
+			<article>
+				<h2>红富士</h2>
+				<p>内容</p>
+			</article>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="ldh">刘德华</button>
+		<button id="zxy">张学友</button>
+		<img src="../../../img/photo3.png" alt="python">
+		<script type="text/javascript">
+			//修改元素属性 src
+			//1.获取元素
+			var ldh=document.getElementById('ldh');
+			var zxy=document.getElementById('zxy');
+			var img=document.querySelector('img');
+			//2.注册事件
+			zxy.onclick=function(){
+				img.src='../../../img/photo4.png';
+				img.title='c';
+			}
+			ldh.onclick=function(){
+				img.src='../../../img/photo3.png';
+				img.title='python';
+			}
+		</script>
+	</body>
+</html>

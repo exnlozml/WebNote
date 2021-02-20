@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+.main {
+    width: 400px;
+    height: 350px;
+    margin: 50px auto;
+    border: 1px solid salmon;
+}
+ul li {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+    width: 70px;
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+}
+span {
+    margin-left: 10px;
+    color: #aaa;
+    font-size: 14px;
+}
+.wrong {
+    color: red;
+}
+.success {
+    color: green;
+}

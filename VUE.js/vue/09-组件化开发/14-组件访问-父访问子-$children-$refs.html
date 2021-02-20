@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn ref="aaa"></cpn>
+    <button @click="btnClick">按钮</button>
+  </div>
+
+  <template id="cpn">
+    <div>
+      我是子组件
+    </div>
+  </template>
+  <script src="/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        btnClick() {
+          // 1.$children
+          // console.log(this.$children);
+          // for(let c of this.$children) {
+          //   console.log(c.name);
+          //   c.showMeaasge();
+          // }
+          // console.log(this.$children[2].name);
+
+          // 2.$refs => 对象类型, 默认是一个空的对象, 必须在组件上加 ref="aaa"
+          console.log(this.$refs.aaa);
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              name:'我是子组件的name'
+            }
+          },
+          methods: {
+            showMeaasge() {
+              console.log('showMessage');
+            }
+          },
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

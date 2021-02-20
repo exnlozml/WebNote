@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2 v-if="isShow">
+      <div>abc</div>
+      <div>abc</div>
+      <div>abc</div>
+      {{message}}
+    </h2>
+    <h1 v-else="isShow">isShow为false时显示我</h1>
+  </div>
+  <script src="/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message:'你好啊',
+        isShow:false
+      },
+      methods: {}
+    });
+  </script>
+</body>
+</html>

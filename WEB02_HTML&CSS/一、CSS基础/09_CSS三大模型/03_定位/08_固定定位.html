@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>固定定位</title>
+		<style>
+			body {
+				height: 3000px;
+			}
+			.father {
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 100px auto;
+				position: relative; /* 父级有定位 */
+			}
+
+			img {
+				position: fixed;
+				/* 固定定位 
+					1.完全脱标不占位置，不随滚动条滚动
+					2.和父级元素没有任何，之认浏览器*/
+				top: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<img src="../../../img/sun.jpg" width="100px" alt="">
+		</div>
+	</body>
+</html>

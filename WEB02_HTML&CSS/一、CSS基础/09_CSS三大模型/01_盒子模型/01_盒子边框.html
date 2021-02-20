@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒子边框</title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				border-width: 5px;/* 边框宽度 粗细 */
+				border-color: pink;/* 边框颜色 */
+				/* border-style: solid;  边框样式 单实线 用的最多 */
+				/*border-style: dashed; 边框为虚线  用的最多 dashed */
+				/*border-style: dotted; 边框为点线 */
+				border-style: double;/* 双实线 */
+			}
+			input{
+				border: 0px;
+			}
+			.user{
+				border-width: 1px;
+				border-color: pink;
+				border-style: solid;
+			}
+			.nc{
+				border-top-width: 1px;  /* 上边框宽度 */
+				border-top-color: hotpink;
+				border-top-style: solid;
+				border-bottom-width: 1px;  /* 下边框宽度 */
+				border-bottom-color: hotpink;
+				border-bottom-style: solid;
+			}
+			.email{
+				border-top: 1px solid red; /* 上边框宽度 样式 颜色 */
+				border-bottom: 1px solid green;
+			}
+			.tel{
+				border: 1px solid skyblue;/* 综合性写法 */
+			}
+		</style>
+	</head>
+	<body>
+		<div>我是一个盒子</div>
+		<hr/>
+		用户名：<input type="text" class="user"/><br/><br/>
+		昵  称：<input type="text" class="nc"/><br/><br/>
+		邮  箱：<input type="text" class="email"/><br/><br/>
+		手  机：<input type="text" class="tel"/><br/><br/>
+	</body>
+</html>

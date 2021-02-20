@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            // 边界符 ^ $
+            var rg = /abc/; // 正则表达式里不需要加引号，不管是数字型还字符串型
+            // /abc/ 只要包含有abc这个字符串反回的都是true
+            console.log(rg.test('abc'));
+            console.log(rg.test('abcd'));
+            console.log(rg.test('aabcd'));
+            console.log('--------');
+            var reg = /^abc/; // 以abc开头
+            console.log(reg.test('abc')); // true
+            console.log(reg.test('abcd')); // true
+            console.log(reg.test('aabcd')); // true
+            console.log('--------');            
+            var reg1 = /^abc$/; // 精确匹配 要求必须是abc字符串
+            console.log(reg1.test('abc')); // true
+            console.log(reg1.test('abcd')); // false
+            console.log(reg1.test('aabcd')); // false
+            console.log(reg1.test('abcabc')); // false
+        </script>
+    </body>
+</html>

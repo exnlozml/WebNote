@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Doucment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .login-header {
+            height: 50px;
+        }
+
+        .login-header #link {
+            width: 144px;
+            display: block;
+            line-height: 50px;
+            margin: 0 auto;
+            color: dimgray;
+        }
+
+        .login {
+            display: none;
+            width: 500px;
+            height: 280px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 5px #ddd;
+            z-index: 9999;
+        }
+
+        .login .login-title {
+            height: 80px;
+            line-height: 80px;
+            margin: auto;
+            text-align: center;
+            font-size: 25px;
+            background-color: #fff;
+            position: relative;
+            cursor: move;
+        }
+
+        .login-title span {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: cornsilk;
+            right: -15px;
+            top: -15px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            color: dimgray
+        }
+        .login-title a {
+            cursor: pointer;
+        }
+
+        .login-input {
+            height: 200px;
+            background-color: oldlace;
+        }
+
+        .user_name,
+        .user_password {
+            height: 70px;
+            margin: 0 auto 10px;
+        }
+
+        label {
+            float: left;
+            width: 90px;
+            padding-right: 10px;
+            text-align: right;
+            line-height: 70px;
+            font-size: 18px;
+        }
+
+        input {
+            float: left;
+            line-height: 40px;
+            height: 40px;
+            width: 250px;
+            margin-top: 15px;
+            border: #ebebeb 1px solid;
+            text-indent: 5px;
+        }
+
+        button {
+            display: block;
+            height: 35px;
+            width: 60px;
+            margin: 0 auto;
+            font-size: 18px;
+            background-color: paleturquoise;
+            border: 1px solid linen;
+            cursor: pointer;
+        }
+
+        .login-bg {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-header">
+        <a id="link" href="javascript:;">点此弹出登录框</a>
+    </div>
+    <div class="login">
+        <div class="login-title">
+            用户登录
+            <span><a id="linl" herf="#">关闭</a></span>
+        </div>
+        <div class="login-input">
+            <div class="user_name">
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名">
+            </div>
+            <div class="user_password">
+                <label>密码：</label>
+                <input type="password" placeholder="请输入密码">
+            </div>
+            <button>登录</button>
+        </div>
+    </div>
+    <div class="login-bg"></div>
+    <script>
+        var click = document.querySelector('#link');
+        var login = document.querySelector('.login');
+        var bg = document.querySelector('.login-bg');
+        //1.点击显示遮盖层和模态框
+        click.addEventListener('click', function () {
+            bg.style.display = 'block';
+            login.style.display = 'block';
+            // this.style.display = 'none';
+        })
+
+        //2.点击隐藏遮盖层和模态框
+        var close = document.querySelector('span');
+        close.addEventListener('click', function () {
+            bg.style.display = 'none';
+            login.style.display = 'none';
+            // click.style.display = 'block';
+        })
+
+        //3.拖动模态框：
+            // 在页面中拖动的原理：鼠标按下且移动，之后松开鼠标
+            // 触发事件是鼠标按下mousedown，鼠标移动mousemove，鼠标松开mouseup
+            // 拖拽过程：鼠标移动过程中，获得最新的赋值给模态框的left和top值，这样模态框可以跟着鼠标动
+            // 鼠标按下触发的时间源是最上面一行，id为title
+            // 鼠标的坐标减去 鼠标在盒子内的坐标，才是模态框真正的位置
+            // 鼠标按下，得到鼠标在盒子内的坐标
+            // 鼠标移动，就让模态框的坐标 设置为 ： 鼠标坐标减去盒子坐标即可
+            // 鼠标松开，就停止拖拽，就是可以让鼠标移动事件解除
+        // (1) 当鼠标按下，获得鼠标在盒子内的坐标
+        var title = document.querySelector('.login-title');
+        title.addEventListener('mousedown', function(e) {
+            mouse_left = e.pageX - login.offsetLeft;
+            mouse_top = e.pageY - login.offsetTop;
+            // (2) 鼠标移动的时候，把鼠标在页面中坐标，减去鼠标在盒子内的坐标就是模态框的left和top
+            document.addEventListener('mousemove', move);
+
+            function move(e) {
+                login.style.left = e.pageX - mouse_left + 'px';
+                login.style.top = e.pageY - mouse_top + 'px';
+            }
+            // (3)  鼠标弹起，就让鼠标移动事件移除
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//利用函数判断闰年
+			function isRunYear(year) {
+				//如果是闰年,返回ture;否则,返回false
+				var flag = false;
+				if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+					flag = true;
+				}
+				return flag;
+			}
+			console.log(isRunYear(2017));
+			console.log(isRunYear(2020));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

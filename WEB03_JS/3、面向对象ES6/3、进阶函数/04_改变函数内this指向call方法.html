@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            // 改变函数内this指向 js提供了三种方法 call() apply() bind()
+
+            // 1.call()
+            var o = {
+                name: 'andy'
+            }
+            function fn(a, b) {
+                console.log(this);
+                console.log(a+b);
+            }
+            fn.call(o, 1, 2);
+            // call 第一个可以调用函数 第二个可以改变函数内this的指向
+            // call 的主要作用是可以实现继承
+            function Father(uname, age, sex) {
+                this.uname = uname;
+                this.age = age;
+                this.sex = sex;
+            }
+
+            function Son(uname, age, sex) {
+                Father.call(this, uname, age, sex);
+            }
+            var son = new Son('路的话', 18, '男');
+            console.log(son);
+
+            // 2.apply() 应用 运用的意思
+            var o = {
+                name:'andy'
+            };
+
+            function fn(arr) {
+                console.log(this);
+                console.log(arr);
+            };
+            fn.apply(o, ['pink']);
+            // (1). 也可以调用函数 第二个可以改变函数内this的指向
+            // (2).但是他的参数必须是数组(伪数组)
+            // (3).apply 的主要应用 比如说可以利用 apply 借助于数学内置对象来求最大值
+            // Math.max();
+            var arr = [1,88,90,34];
+            var max = Math.max.apply(Math, arr);
+            var min = Math.min.apply(Math, arr);
+            console.log(max, min);
+        </script>
+    </body>
+</html>

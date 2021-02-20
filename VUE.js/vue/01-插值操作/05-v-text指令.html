@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+    </head>
+
+    <body>
+       <div id="app">
+           <h2 v-text="message+'!'">深圳</h2>
+           <h2 v-text="info+'!'">深圳</h2>
+           <h2>{{message+'!'}}深圳</h2>
+       </div>
+        <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue ({
+                el:"#app",
+                data:{
+                    message:"黑马程序员!!!",
+                    info:"前端移动教研部"
+                }
+            })
+        </script>
+    </body>
+</html>

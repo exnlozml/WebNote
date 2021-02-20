@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn :number1="num1" :number2="num2" 
+          @num1change="n1Change" @num2change="n2Change" 
+          @dnum1change="dn1Change" @dnum2change="dn2Change"/>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>props:{{number1}}</h2>
+      <h2>data:{{dnumber1}}</h2>
+      <!-- <input type="text" v-model="dnumber1"> -->
+      <input type="text" :value="dnumber1" @input="num1Input">
+      <h2>props:{{number2}}</h2>
+      <h2>data:{{dnumber2}}</h2>
+      <!-- <input type="text" v-model="dnumber2"> -->
+      <input type="text" :value="dnumber2" @input="num2Input">
+
+    </div>
+  </template>
+
+  <script src="/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        num1: 1,
+        num2: 0
+      },
+      methods: {
+        n1Change(value) {
+          this.num1 = Number(value);  // Number() 类型转换
+        },
+        n2Change(value) {
+          this.num2 = parseFloat(value); // parseFloat 转换为浮点数
+        },
+        dn1Change(value) {
+          this.num2 = value;
+        },
+        dn2Change(value) {
+          this.num1 = value;
+        } 
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props: {
+            number1: Number,
+            number2: Number
+          },
+          data() {
+            return {
+              dnumber1: this.number1,
+              dnumber2: this.number2
+            }
+          },
+          methods: {
+            num1Input() {
+              // 1.将Input中的value赋值到dnumber中
+              this.dnumber1 = event.target.value;
+
+              // 2.为了让父组件可以修改值, 发出一个事件
+              this.$emit('num1change', this.dnumber1);
+
+              // 3.同时修改dnumber2的值
+              this.dnumber2 = this.dnumber1  * 100;
+              this.$emit('dnum1change', this.dnumber2);
+            },
+            num2Input() {
+              this.dnumber2 = event.target.value;
+              this.$emit('num2change', this.dnumber2);
+              this.dnumber1 = this.dnumber2 / 100;
+              this.$emit('dnum2change', this.dnumber1);
+            }
+          },
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

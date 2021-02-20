@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                position: relative;
+            }
+            .slider_bar {
+                width: 23px;
+                height: 105px;
+                position: absolute;
+                right: 10px;
+                top: 300px;
+                background-color: bisque;
+            }
+            span {
+                display: none;
+                font-size: 18px;
+                margin-top: 5px;
+                font-weight: 150;
+            }
+            .header, .main, .bottom {
+                width: 800px;
+                margin: 0 auto;
+            }
+            .header {
+                height: 150px;
+                background-color: pink;
+                margin-bottom: 10px;
+            }
+            .main {
+                height: 800px;
+                background-color: blueviolet;
+                margin-bottom: 10px;
+            }
+            .bottom {
+                height: 200px;
+                background-color: coral;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="slider_bar">
+            <span>返回顶部</span>
+        </div>
+        <div class="header"></div>
+        <div class="main"></div>
+        <div class="bottom"></div>
+        <script>
+            // 1.获取元素
+            var slider = document.querySelector('.slider_bar');
+            var span = document.querySelector('span');
+            var header = document.querySelector('.header');
+            var main = document.querySelector('.main');
+            // 页面加载完时main距离浏览器上边的高度 一定要写在滚动的外面
+            var main_offsetTop = main.offsetTop; 
+            // 当侧边栏固定定位之后应该变化的数值（top）
+            var sliderTop = slider.offsetTop - main_offsetTop ; 
+            // 页面加载完时slider的offsetTop值, 当侧边栏恢复绝对定位之后应该变化的数值（top）
+            var sliderBeforeTop = slider.offsetTop; 
+            console.log(sliderBeforeTop);
+            // 2.页面滚动事件 scroll
+            document.addEventListener('scroll', function() {
+                // 3.当页面被卷去的头部大于等于 main_offsetTop 时，侧边栏改为固定定位，并且显示span
+                if (window.pageYOffset >= main_offsetTop) {
+                    slider.style.position = 'fixed';
+                    span.style.display = 'block';
+                    slider.style.top = sliderTop + 'px';
+                } else {
+                    slider.style.position = 'absolute';
+                    span.style.display = 'none';
+                    slider.style.top = sliderBeforeTop + 'px';
+                }
+            })
+        </script>
+    </body>
+</html>

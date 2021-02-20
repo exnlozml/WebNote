@@ -1,0 +1,109 @@
+#father {
+	border: 0px solid red;
+	width: 1410px;
+	height: 2180px;
+	margin: auto;
+}
+
+#logo {
+	border: 0px solid black;
+	width: 1410px;
+	height: 50px;
+}
+
+.top {
+	border: 0px solid blue;
+	f width: 468px;
+	height: 50px;
+	float: left;
+}
+
+#top {
+	padding-top: 11px;
+	height: 39px;
+}
+
+#menu {
+	border: 0px solid gold;
+	width: 1410px;
+	height: 50px;
+	background-color: black;
+	margin-bottom: 10px;
+}
+
+ul li {
+	display: inline;
+	color: white;
+}
+
+#product {
+	border: 0px solid red;
+	width: 1410px;
+	height: 575px;
+	margin-top: 10px;
+}
+
+#product_top {
+	border: 0px solid blue;
+	widows: 1410px;
+	height: 73px;
+
+}
+
+#product_bottom {
+	border: 0px solid green;
+	width: 1409px;
+	height: 500px;
+}
+
+#product_bottom_left {
+	border: 0px solid red;
+	width: 281px;
+	height: 500px;
+	float: left;
+}
+
+#product_bottom_right {
+	border: 0px solid blue;
+	width: 1124px;
+	height: 499px;
+	float: left;
+}
+
+#big {
+	border: 0px solid red;
+	width: 840px;
+	height: 100px;
+	float: left;
+}
+
+#bet {
+	border: 0px solid blue;
+	width: 280px;
+	height: 100px;
+	float: left;
+}
+
+.small {
+	border: 0px solid green;
+	width: 279px;
+	height: 397px;
+	float: left;
+}
+
+#bottom {
+	border: 0px solid blueviolet;
+	width: 1410px;
+	height: 75px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul li1 {
+	display: inline;
+	color: blue;
+	}

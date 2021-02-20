@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定位属性</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+			}
+			.first {
+				background-color: pink;
+				position: absolute;/* 1.定位模式(绝对定位) 配合边偏移使用 */
+				left: 100px;/* 边偏移 左侧偏移量 */
+				top: 10px;/* 顶端偏移量 */
+				
+				/*2. 静态定位--对于边偏移无效的 */
+				/* position: static; */
+				/* 一般用它来清除定位,一个原来有定位的盒子,不想加定位了,就写这句话 */
+			}
+			.second {
+				background-color: purple;
+				position: relative; /*3. 相对定位，以自己的左上角为基点移动(相对于自己来移动) 但是原来的位置继续占有(相对定位不脱标) */
+				left: 20px;
+				top: 30px;
+			}
+			.end {
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first"></div>
+		<div class="second">2</div>
+		<div class="end"></div>
+	</body>
+</html>

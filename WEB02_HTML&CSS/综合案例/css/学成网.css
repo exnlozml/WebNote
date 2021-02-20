@@ -1,0 +1,422 @@
+/* 样式 */
+/* 初始化 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	/* 去掉列表样式小点 */
+}
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: "";
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+a {
+	color: #050505;
+	text-decoration: none;
+	/* 取消下划线 */
+}
+
+input {
+	border: 0;
+	/* 所有的表单边框为0 */
+	box-sizing: border-box;
+	/* CSS3盒子模型 border和 padding 都包含的width里面去 */
+}
+
+.container {
+	/* 因为我们的版心宽度都是1280 都要居中对齐 就声明一个公共类 */
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* css初始化结束 */
+/* 页面头部分 */
+body {
+	background-color: #F3F5F7;
+	/* 整个页面的背景色 */
+}
+
+header {
+	height: 100px;
+	overflow: hidden;
+	/* 防止外边距合并 */
+}
+
+nav {
+	width: 1363px;
+	/* 宽度暂且定位1366 */
+	height: 44px;
+	margin: 28px auto;
+}
+
+.logo {
+	float: left;
+}
+
+.navbar {
+	float: left;
+	height: 42px;
+	line-height: 42px;
+	/* 这个行规给父亲,行高会继承 */
+	margin-left: 52px;
+}
+
+.navbar li {
+	float: left;
+	/* 让首页 课程这一行显示 */
+}
+
+.navbar li a {
+	padding: 0 10px;
+	display: block;
+	/* a 是行内元素,给高度要转换成块级元素 */
+}
+
+.navbar li a:hover {
+	border-bottom: 2px solid #00A4FF;
+	/* 鼠标放入底边框 */
+}
+
+/* 搜索框部分 */
+.search {
+	width: 410px;
+	height: 38px;
+	border: 1px solid #00A4FF;
+	float: right;
+}
+
+.search input[type=text] {
+	/* 属性选择器   type为text的文本框*/
+	width: 360px;
+	height: 38px;
+	padding-left: 20px;
+	float: left;
+}
+
+.search input[type=submit] {
+	/* 属性选择器   type为sumbit的文本框*/
+	width: 50px;
+	height: 38px;
+	float: left;
+	background: #00A4FF url(../img/search_06.png) center center no-repeat;
+}
+
+/* 搜索框部分结束 */
+
+/* 个人中心开始 */
+
+.person {
+	float: right;
+	height: 42px;
+	line-height: 42px;
+	margin: 0 15px 0 28px;
+}
+
+.person img {
+	margin: 0 8px 0 8px;
+	vertical-align: middle;
+}
+
+/* 个人中心结束 */
+/* banner 开始 */
+.banner {
+	height: 420px;
+	background-color: #1c036c;
+
+}
+
+.banner-in {
+	height: 420px;
+	background: url(../img/banner-1_03.png) 0 0 no-repeat;
+	position: relative;
+	/* 子绝父相 */
+}
+
+.slidebar {
+	height: 420px;
+	width: 190px;
+	background: rgba(0, 0, 0, 0.4);
+	float: left;
+}
+
+.slidebar li a {
+	color: #fff;
+	font-size: 16px;
+	padding: 0 20px;
+	/* a是行内元素,没有大小需要转换 */
+	display: block;
+	height: 45px;
+	line-height: 45px;
+	/* 单行垂直居中 个人经验,很多情况下,有了行高可以不用给高度 */
+
+}
+
+.slidebar li a:hover {
+	color: #00b4ff;
+}
+
+.slidebar li a span {
+	float: right;
+	font-family: arial;
+	/* 一般情况我们的符号都用这个字体 */
+}
+
+.timetable {
+	float: right;
+	width: 230px;
+	height: 310px;
+	margin-top: 50px;
+	background-color: #fff;
+}
+
+.timetable dt {
+	height: 50px;
+	line-height: 50px;
+	background-color: #9bceea;
+	text-align: center;
+	/* 文字水平居中 */
+	color: #fff;
+	font-weight: 700;
+	letter-spacing: 2px;
+	margin-bottom: 5px;
+}
+
+.timetable dd {
+	height: 60px;
+	width: 192px;
+	margin: 0 auto;
+	border-bottom: 1px solid #ccc;
+	padding-top: 12px;
+	box-sizing: border-box;
+}
+
+.timetable dd:last-child {
+	/* 伪类选择器 选最后一个孩子 但是要求这个孩子是dd */
+	border: 0;
+}
+
+.timetable dd h4 {
+	font-size: 16px;
+	font-weight: normal;
+	/* 让粗体不变粗 */
+	color: #4e4e4e;
+}
+
+.timetable dd p {
+	font-size: 14px;
+	color: #a5a5a5;
+}
+
+.timetable dd a {
+	height: 38px;
+	border: 1px solid #00a4ff;
+	display: block;
+	text-align: center;
+	line-height: 38px;
+	color: #00a4ff;
+	font-weight: 700;
+	/* 文字加粗 不要加单位 */
+	transition: all 0.7s; /* 背景颜色和文字颜色变化 */
+	/* ctrl+g 快速到某一行 */
+}
+
+.timetable dd a:hover {
+	background-color: #00a4ff;
+	color: #fff;
+}
+
+/* 小圆点模块 */
+.circle {
+	width: 180px;
+	height: 22px;
+	/* background-color: pink; */
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	/* 父盒子宽度的一半 */
+	margin-left: -90px;
+}
+
+.circle li {
+	/* 0011 权重 */
+	float: left;
+	width: 12px;
+	height: 12px;
+	background: rgba(255, 255, 255, 0.4);
+	margin: 5px 9px;
+	/* 上下5,左右9 */
+	border-radius: 50%;
+}
+
+.circle .current {
+	width: 19px;
+	border-radius: 35%;
+	background-color: #fff;
+}
+
+/* banner 结束 */
+/* 精品推荐 */
+.recommend {
+	height: 60px;
+	line-height: 60px;
+	background-color: #fff;
+	margin-top: 8px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	/* 盒子阴影 水平位置 垂直位置 模糊距离 影子颜色*/
+}
+
+.recommend a {
+	padding: 0 30px;
+	border-right: 1px solid #ccc;
+}
+
+.recommend a:hover {
+	color: #00a4ff;
+}
+
+.recommend a:first-child {
+	color: #00a4ff;
+}
+
+.recommend a:nth-child(7) {
+	border: 0;
+}
+
+.recommend a:last-child {
+	color: #00a4ff;
+	border: 0;
+	float: right;
+	font-size: 14px;
+}
+
+.recom-products {
+	margin-top: 35px;
+}
+
+.recom-hd {
+	height: 40px;
+}
+
+.recom-hd h4 {
+	float: left;
+	color: #494949;
+}
+
+.recom-hd a {
+	float: right;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #a5a5a5;
+	margin-right: 30px;
+}
+
+.recom-hd a:hover {
+	color: #00a4ff;
+}
+
+/* 精品推荐主体部分 */
+.recom-bd ul li {
+	width: 228px;
+	height: 270px;
+	background-color: white;
+	overflow: hidden; /* 溢出隐藏 */
+	
+	float: left;
+	margin-right: 15px;
+	margin-top: 15px;
+	transition: all 0.2s;
+}
+.recom-bd ul li:hover {
+	margin-top: 10px;
+	box-shadow: 0 8px 5px rgba(0,0,0,0.2);
+}
+.recom-bd ul li:nth-child(5n) {  /* 5n  n从0开始的,0 5 10  5n就是5的倍数 */
+	margin-right: 0;
+}
+.recom-bd li h5,
+.recom-bd li p {
+	padding: 0 20px 0 24px;
+	margin-top: 12px;
+}
+.recom-bd li h5 {
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 22px;
+}
+.recom-bd li p {
+	font-size: 12px;
+	color: #999;
+}
+.recom-bd p span {
+	color: #ff7c2d;
+}
+/* 页面底部分 */
+footer {
+	height: 270px;
+	background-color: #fff;
+	margin-top: 85px;
+}
+.footer-in {
+	padding-top: 30px;
+}
+.footer-l {
+	float: left;
+}
+.footer-l p {
+	font-size: 12px;
+	line-height: 18px;
+	color: #999;
+	margin-top: 20px;
+}
+.footer-l a {
+	display: block;
+	width: 118px;
+	height: 33px;
+	border: 1px solid #00a4ff;
+	font-size: 16px;
+	color: #00a4ff;
+	text-align: center;
+	line-height: 33px;
+	margin-top: 15px;
+}
+.footer-l a:hover {
+	background-color: #00a4ff;
+	color: #fff;
+}
+.footer-r {
+	float: right;
+	color: #333;
+}
+.footer-r dl {
+	float: left;
+	width: 225px;
+}
+.footer-r dt {
+	font-size: 16px;
+	height: 30px;
+	
+}
+.footer-r dd {
+	font-size: 12px;
+	height: 20xp;
+}
+.footer-r dd a:hover {
+	color: #00a4ff;
+	text-decoration: underline; /* 添加下划线 */
+}
+

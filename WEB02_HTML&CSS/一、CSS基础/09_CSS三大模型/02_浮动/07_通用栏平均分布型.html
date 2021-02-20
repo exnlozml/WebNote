@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>通用栏平均分布型</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none; 取消列表默认样式
+			}
+			.top{
+				height: 60px;
+				background-color: #000;
+			}
+			.banner{
+				width: 960px;
+				height: 400px;
+				background-color: skyblue;
+				margin: 20px auto;
+				border-radius: 15px;
+			}
+			.main{
+				width: 960px;
+				height: 200px;
+				margin: 0 auto;
+			}
+			.main ul li{
+				width: 240px;
+				height: 200px;
+				background-color: pink;
+				float: left;  /* 浮动的目的让多个块级li 一行显示  而且没有缝隙 */
+			}
+			.main ul li:nth-child(even){  /* even偶数个 odd奇数个*/
+				background-color: purple;
+			}
+			.footer{
+				height: 100px;
+				background-color: #000;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top">top</div>
+		<div class="banner">banner</div>
+		<div class="main">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<div class="footer">footer</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪元素选择器</title>
+		<style>
+			/* .demo 类选择器
+			:first-child 伪类选择器
+			::first-letter 伪元素选择器 */
+			p::first-letter {
+				/* 1.选择第一个字 */
+				color: #f00;
+				font-size: 50px;
+			}
+
+			p::first-line {
+				/* 2.选择第一行 */
+				color: #0f0;
+			}
+
+			p::selection {
+				/* 3.当我们选中文字的时候,可以变化的样式 */
+				color: #00f;
+			}
+
+			/* befor和after在盒子div的内部前面插入或者是内部后面插入 */
+			div:before {
+				/* 4.在前面放上内容 */
+				content: "俺";
+			}
+
+			div:after {
+				/* 5.在后面放上内容 */
+				content: "18岁";
+			}
+		</style>
+	</head>
+	<body>
+		<h1>freestyle</h1>
+		<p>英语词汇，一般指即兴的、随性的随意的发挥，例如HIPHOP说唱中的freestyle4
+			就是即兴说唱的意思。2017年6月，因吴亦凡屡次提起而火遍网络。 吴亦凡爆红
+			的freestyle，其实是嘻哈选手的基本功，也是《中国有嘻哈》节目中的一个环节
+			名称。 发展经过编辑 从吴亦凡口里说出来，freestyle就变得很魔性了，因为他
+			见人都会问一句，你有freestyle吗？两个选手难以选择，还是这句，“
+			你们有freestyle吗”？</p>
+
+		<div>今年</div>
+	</body>
+
+</html>

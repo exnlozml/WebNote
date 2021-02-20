@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box {
+				width: 400px;
+				border-bottom: 1px solid #ccc;
+				margin: 100px auto;
+				position: relative;
+			}
+			.box input {
+				width: 370px;
+				height: 30px;
+				border: 0;
+				outline: none;
+			}
+			.box img {
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				width: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<label>
+				
+				<img src="../../../img/3.PNG" alt="" id="img1">
+			</label>
+			<input type="password" id="pp" value="" />
+		</div>
+		<script type="text/javascript">
+			//1.获取元素
+			var img=document.getElementById('img1');
+			var ipt=document.getElementById('pp');
+			//2.绑定事件 处理程序
+			var flag=0;
+			img.onclick=function (){
+				//点击一次后 flag一定要变化
+				if(flag==0) {
+					ipt.type='text';
+					img.src='../../../img/定时广告图.jpg';
+					flag=1; //赋值操作
+				}
+				else {
+					ipt.type='password';
+					img.src='../../../img/3.PNG';
+					flag=0;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <div class="title">
+                <img src="img/logo.png">
+                <span>深圳市创维校区环境</span>
+            </div>
+            <div class="center">
+                <a href="#" id="left" @click="prev" v-show="index!=0"><img src="img/prev.png" style="opacity: 0.5;"></a>
+                <img :src="imgArr[index]" width="100%" height="100%" id="">
+                <a href="#" id="right" @click="next" v-show="index<imgArr.length-1"><img src="img/next.png" style="opacity: 0.5;"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue ({
+            el:"#app",
+            data:{
+                imgArr:[
+                    "img/00.jpg",
+                    "img/01.jpg",
+                    "img/02.jpg",
+                    "img/03.jpg",
+                    "img/04.jpg",
+                    "img/05.jpg",
+                    "img/06.jpg",
+                    "img/07.jpg",
+                    "img/08.jpg",
+                    "img/09.jpg",
+                    "img/10.jpg"
+                ],
+                index:0
+            },
+            methods:{
+                prev:function() {
+                        this.index--;
+                },
+                next:function() {
+                        this.index++;
+                }
+            }
+        })
+    </script>    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        // 1.利用 new Object() 创建对象
+
+        var obj1 = new Object();
+        
+        // 2.利用 对象字面量 创建对象
+
+        var obj2 = {};
+
+        // 3.利用构造函数创建对象
+
+        // 构造函数是一种特殊的函数，主要用来初始化对象，即对象成员变量赋初始值，它总与new一起使用。 我们可以把对象中一些公关的属性和方法抽取出来，然后封装到这个函数里面、
+        // 在JS中，使用构造函数时要注意以下两点：
+        // (1).构造函数用于创建某一类对象，其首字母要大写
+        // (2).构造函数要和new一起使用才有意义
+
+        function Star(uname, uage) {
+            this.uname = uname;
+            this.uage = uage;
+            this.sing = function() {
+                console.log('我会唱歌');
+            }
+        }
+
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 23);
+        console.log(ldh);
+        console.log(zxy);
+        ldh.sing();
+        zxy.sing();
+    </script>
+
+</body>
+
+</html>

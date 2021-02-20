@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//冒泡排序
+			var arr=[5,4,3,2,1];
+			for (var i=0;i<=arr.length-1;i++) { //外层循环管趟数
+				for (var j=0;j<=arr.length-i-1;j++) { //里层循序管次数
+					if(arr[j]>arr[j+1]) {
+						//内部交换2个变量的值 前一个和后一个数组元素比较
+						var test=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=test;
+					}
+				}
+			}
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

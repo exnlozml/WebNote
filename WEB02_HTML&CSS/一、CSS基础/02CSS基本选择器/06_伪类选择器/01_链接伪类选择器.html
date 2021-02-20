@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>链接伪类选择器</title>
+		<!--链接伪类选择器主要针对与a标签，链接 -->
+		
+		<!-- 标准方式（不推荐） -->
+		<!-- <style>
+			a:link{  /* 未访问的链接 */
+				font-size: 16px;
+				color: gray;
+				font-weight: 700;
+			}
+			
+			a:visited{   /* 已访问过的链接 */
+				font-size: 16px;
+				color: pink;
+				font-weight: 700;
+			}
+			
+			a:hover{   /* 鼠标经过的时候 */
+				font-size: 16px;
+				color: red;
+				font-weight: 700;
+			}
+			
+			a:active{   /* 选定的链接 */
+				font-size: 16px;
+				color: blue;
+				font-weight: 700;
+			}
+		</style> -->
+		
+		<!-- 简写方式（推荐） -->
+		<style>
+			a{    /* 链接初始样式 */
+				font-size: 16px;
+				color: gray;
+				font-weight: 700;
+			}
+			a:hover{    /* 鼠标经过的时候 */
+				font-size: 16px;
+				color: red;
+				font-weight: 700;
+			}
+		</style>
+	</head>
+	<body>
+		链接伪类选择器主要针对与a标签，链接
+		<div>
+			<a href="www.baidu.com">秒杀</a>
+			<a href="www.jd">闪购</a>
+		</div>
+	</body>
+</html>

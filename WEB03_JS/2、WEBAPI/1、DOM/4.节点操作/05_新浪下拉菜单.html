@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				list-style-type: none;
+			}
+			a {
+				text-decoration: none;
+				font-size: 14px;
+			}
+			.main {
+				margin: 100px;
+			}
+			.main li {
+				float: left;
+				width: 80px;
+				height: 41px;
+				text-align: center;
+				position: relative;
+			}
+			.main li a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				line-height: 41px;
+				color: #333;
+			}
+			.main li a:hover {
+				background-color: #87CEEB;
+			}
+			.main ul {
+				display: none;
+				position: absolute;
+				top: 41px;
+				left: 0;
+				width: 100%;
+				border-left: 1px solid #FFD700;
+				border-right: 1px solid #FFD700;
+			}
+			.main ul li {
+				border-bottom: 1px solid #FFD700;
+			}
+			.main ul li a {
+				font-size: 12px;
+			}
+			.main ul li a:hover {
+				background-color: #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="main">
+			<li>
+				<a href="#">微博</a>
+				<ul>
+					<li><a href="#">私信</a></li>
+					<li><a href="#">评论</a></li>
+					<li><a href="#">@我</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">微博</a>
+				<ul>
+					<li><a href="#">私信</a></li>
+					<li><a href="#">评论</a></li>
+					<li><a href="#">@我</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">微博</a>
+				<ul>
+					<li><a href="#">私信</a></li>
+					<li><a href="#">评论</a></li>
+					<li><a href="#">@我</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">微博</a>
+				<ul>
+					<li><a href="#">私信</a></li>
+					<li><a href="#">评论</a></li>
+					<li><a href="#">@我</a></li>
+				</ul>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			//1.获取元素
+			var main=document.querySelector('.main');
+			var lis=main.children; //得到4个li
+			//2.循环注册事件
+			for(var i=0;i<lis.length;i++){
+				lis[i].onmouseover=function () {
+					this.children[1].style.display='block';
+				}
+				lis[i].onmouseout=function () {
+					this.children[1].style.display='none';
+				}
+			}
+		</script>
+	</body>
+</html>

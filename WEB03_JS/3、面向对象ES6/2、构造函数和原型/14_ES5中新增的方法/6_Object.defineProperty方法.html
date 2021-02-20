@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf_8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.defineProperty(obj, prop, descriptor) 定义新属性或修改原有的属性
+        var obj = {
+            id:1,
+            name:'小米',
+            price:9000
+        };
+        // 1.以前的对象添加和修改属性的方式
+        // obj.num = 1000;
+        // obj.price = 998;
+        // console.log(obj);
+        // 2.Object.defineProperty() 定义新属性和修改原有属性
+        Object.defineProperty(obj, 'num', {
+            value: 1000,
+            enumerable: true
+        });
+        console.log(obj);
+        Object.defineProperty(obj, 'price', {
+            value: 998
+        });
+        console.log(obj);
+        Object.defineProperty(obj, 'id', {
+            writable: false // 如果为 false 不允许重写属性值 默认值也是false
+        });
+        obj.id = 2;
+        console.log(obj);
+        console.log(obj);
+        Object.defineProperty(obj, 'address', {
+            value: '北京',
+            // 如果为 false 不允许重写属性值 默认值也是false
+            writable: false, 
+            // enumerable 如果值为 false 则不允许遍历 默认值也是 false
+            enumerable: false,
+            // configurable 如果为false 则不允许删除这个属性 不允许再修改第三个参数里面的特性 默认为 false
+            configurable: false 
+        });
+        console.log(obj);
+        console.log(Object.keys(obj));
+        delete obj.address;
+        console.log(obj);
+        delete obj.name;
+        console.log(obj);
+        Object.defineProperty(obj, 'address', {
+            value: '北京',
+            // 如果为 false 不允许重写属性值 默认值也是false
+            writable: true, 
+            // enumerable 如果值为 false 则不允许遍历 默认值也是 false
+            enumerable: true,
+            // configurable 如果为false 则不允许删除这个属性 默认为 false
+            configurable: true 
+        });
+        console.log(obj.address);
+    </script>
+</body>
+
+</html>

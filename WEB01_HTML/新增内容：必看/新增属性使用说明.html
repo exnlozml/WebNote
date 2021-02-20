@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>新增属性使用说明</title>
+	</head>
+	<body>
+		用户名：<input type="text" placeholder="请输入用户名" autofocus="autofocus"/>
+				<!-- placeholder占位符，当用户输入的时候，里面的文字消失；删除所有文字自动返回 -->
+				<!-- autofocus规定当前页面加载时，input元素应该自动获得焦点 -->
+		上传头像：<input type="file" multiple="multiple"/><br /><br />
+				 <!-- multiple多文件上传 -->
+				 
+		<h4>自动记录完成</h4>
+		<!-- 1.autocomplete 首先需要提交按钮
+			 2.这个表单必须给名字name
+			 3.on与off切换是否开启记忆功能-->
+		<form action="">
+			姓名：<input type="text" autocomplete="on" name="username"/>
+			<input type="submit" value="提交" />
+		</form>
+		<br />
+		<!-- required 不能为空 -->
+		昵称：<input type="text" required="required" accesskey="s">
+		<!-- accesskey 使元素获得焦点的快捷键，采用alt+s的形式 -->
+	</body>
+</html>

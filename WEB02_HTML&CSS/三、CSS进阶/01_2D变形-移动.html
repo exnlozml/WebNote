@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				/* transform: translate(x,y); */
+				/* 变形: 移动; */
+				transition: all 0.5s;
+			}
+
+			div:active { /* a: active 鼠标点击没有松开鼠标的时候出发的状态,相当于点击 */
+				/*transform: translate(50px, 50px);  当我们点击之后,再移动位置 */
+				/*transform: translate(50px);  当我们点击之后,再移动位置 x 轴 */
+				/*transform: translate(0, 50px);  当我们点击之后,再移动位置 y 轴 */
+				transform: translateX(100px); /* 只跟一个参数,就是x */
+				/* transform: translateY(100px); 只跟一个参数,就是y */
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

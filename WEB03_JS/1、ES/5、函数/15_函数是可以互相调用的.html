@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//函数是可以互相调用的
+			// function fn1() {
+			// 	console.log(11);
+			// 	fn2(); //在fn1函数里面调用了fn2函数
+			// }
+			// fn1();
+			// function fn2() {
+			// 	console.log(22);
+			// }
+			function fn1() {
+				console.log(111);
+				fn2();
+				console.log('fn1');
+			}
+			function fn2() {
+				console.log(222);
+				console.log('fn2');
+			}
+			fn1();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

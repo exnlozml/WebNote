@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <button>停止定时器</button>
+        <script>
+            //window.clearTimeout(Timeout ID) 停止setTimeout定时器
+            //1、window可以省略
+            //2.里面的参数就是定时器的标识符
+            var btn = document.querySelector('button');
+            var timer = setTimeout(function(){
+                console.log('爆炸了');
+            },5000);
+            btn.addEventListener('click', function(){
+                clearTimeout(timer);
+            });
+        </script>
+    </body>
+</html>

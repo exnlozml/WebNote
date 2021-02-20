@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1.修饰符: lazy 失去焦点或回车时才会更新-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+
+    <!-- 2.修饰符: number 让输入框中刚输入的内容自动转成数字类型 -->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}-{{typeof age}}</h2>
+
+    <!-- 3.修饰符: trim 过滤内容左右两边的空格-->
+    <input type="text" v-model.trim="name">
+    <h2>{{name}}-{{name.length}}</h2>
+  </div>
+  
+  <script src="/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message:'你好啊',
+        age:27,
+        name:''
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

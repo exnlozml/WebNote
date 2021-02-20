@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>学生档案</title>
+	</head>
+	<body>
+	<form action="">
+		<fieldset>
+			<legend>学生档案</legend>
+			<label>姓名：<input type="text" placeholder="请输入学生名字"/></label><br /><br />
+			<!-- 使用lable标签：点击文字即可跳转到相应的input标签，以便进行输入或选择 -->
+			<label>手机：<input type="tel" /></label><br /><br />
+			<label>邮箱：<input type="email" /></label><br /><br />
+			<label>学院：<input type="text" placeholder="请选择学院" list="xueyuan"/></label>
+			<datalist id="xueyuan">
+				<option>java学院</option>
+				<option>前端学院</option>
+				<option>php学院</option>
+				<option>设计学院</option>
+			</datalist>
+			
+			<br /><br />
+			
+			<label>成绩：<input type="number" /></label><br /><br />
+			<label>出生日期：<input type="date" /></label><br /><br />
+			<label>毕业时间：<input type="date" /></label><br /><br />
+			<input type="submit" value="提交"/>
+			<input type="reset" value="重置" />
+		</fieldset>
+	</form>	
+	</body>
+</html>

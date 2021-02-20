@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.father {
+				margin: 100px auto;
+				width: 400px;
+				height: 400px;
+				background-color: blue;
+				position: relative;
+			}
+			.son {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son">son盒子</div>
+		</div>
+		<script type="text/javascript">
+			//dom事件流三个阶段
+			//1.JS代码中只能执行捕获或者冒泡其中的一个阶段
+			//2.onclick 和 attachEvent(ie) 只能得到冒泡阶段
+			//3.捕获阶段 如果addEventListener 第三个参数是true 那么则处于捕获阶段
+			//  document -> html -> body -> father -> son
+			// var son=document.querySelector('.son');
+			// son.addEventListener('click',function(){
+			// 	alert('son');
+			// },true);
+			// var father=document.querySelector('.father');
+			// father.addEventListener('click',function(){
+			// 	alert('father');
+			// },true);
+			//4.冒泡阶段 如果addEventListener 第三个参数是false 那么则处于冒泡九丹
+			//  son -> father -> body -> html -> document
+			var son=document.querySelector('.son');
+			son.addEventListener('click',function(){
+				alert('son');
+			},false);
+			var father=document.querySelector('.father');
+			father.addEventListener('click',function(){
+				alert('father');
+			},false);
+			document.addEventListener('click',function(){
+				alert('document');
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="time">2019-9-9</div>
+		<script type="text/javascript">
+			//1.因为我们文档页面从上往下加载,所以显先得有标签 所以我们script写到标签的下面
+			//2.get 获得 element 元素 by 通过 驼峰命名法
+			//3.参数 id是大小写敏感的字符串
+			//4.返回的是一个元素对象
+			var time=document.getElementById('time');
+			console.log(time);
+			console.log(typeof time);
+			//5.console.dir 打印我们返回的元素对象 更好的查看里面的属性和操作方法
+			console.dir(time);
+			
+		</script>
+	</body>
+</html>

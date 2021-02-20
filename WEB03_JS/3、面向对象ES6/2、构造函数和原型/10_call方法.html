@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf_8">
+        <title>Document</title>
+    </head>
+
+    <body>
+        
+        <script>
+            // call 方法
+            function fn(x, y) {
+                console.log('111');
+                console.log(this);
+                console.log(x + y);
+
+            }
+            var o = {
+                name: 'andy'
+            };
+            // fn();
+            // 1.call() 可以调用函数
+            // fn.call();
+            // 2.call() 可以改变这个函数的 此时这个函数的this 就指向了o这个对象
+            fn.call(o, 1, 2);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			section {
+				width: 80%;
+				height: 200px;
+				border: 1px solid pink;
+				margin: 100px auto;
+				/* 父级盒子添加flex */
+				display: flex; /* 伸缩布局形式 */
+				min-width: 300px; /* 最小宽度 */
+				max-width: 1000px; /* 最大宽度 */
+			}
+			section div {
+				height: 100%;
+				
+				
+			}
+			section div:nth-child(1) {
+				background-color: pink;
+				width: 300px;
+			}
+			section div:nth-child(2) {
+				background-color: purple;
+				width: 100px;
+				margin: 0 5px;
+			}
+			section div:nth-child(3) {
+				background-color: pink;
+				flex: 2;   /* 子盒子添加份数 flex: 1; 不跟单位 */
+			}
+			section div:nth-child(4) {
+				background-color: skyblue;
+				flex: 1;   /* 子盒子添加份数 flex: 1; 不跟单位 */
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</section>
+	</body>
+</html>

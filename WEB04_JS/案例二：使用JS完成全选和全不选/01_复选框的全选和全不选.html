@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>使用JQ复选框的全选和全不选</title>
+		
+		<script>
+			function changeColor(id,flag){
+				if(flag=="over"){
+					document.getElementById(id).style.backgroundColor="pink";
+				}
+				else if(flag=="out"){
+					document.getElementById(id).style.backgroundColor="white";
+				}
+			}
+			function checkAll(){
+				//1.获取编号前面的复选框
+				var checkAllEle = document.getElementById("checkAll");
+				//2.对编号前面复选框的状态进行判断
+				if(checkAllEle.checked==true){
+					//3.获取下面所有的复选框
+					var checkOnes = document.getElementsByName("checkOne");
+					//4.对获取的所有复选框进行遍历
+					for(var i=0;i<checkOnes.length;i++){
+						//5.拿到每一个复选框,并将其状态设置为选中
+						checkOnes[i].checked=true;
+					}
+				}
+				else{	
+					//6.获取下面所有的复选框
+					var checkOnes=document.getElementsByName("checkOne");
+					//7.对获取的所有复选框进行遍历
+					for(var i=0;i<checkOnes.length;i++){
+						//8.拿到每一个复选框,并将其状态设置为未选中
+						checkOnes[i].checked=false;
+					}
+				}
+			}
+			
+				
+			
+		</script>
+	</head>
+	<body>
+		<table border="1" width="500px" height="50px" align="center">
+			<thead>
+				<tr>
+					<td colspan="4">
+						<input type="button" value="添加" />
+						<input type="button" value="删除" />
+					</td>
+				</tr>
+				<tr>
+					<th><input type="checkbox" id="checkAll" onclick="checkAll()" /></th>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr onmouseover="changeColor('tr1','over')" id="tr1" onmouseout="changeColor('tr1','out')">
+					<th><input type="checkbox" name="checkOne" /></th>
+					<th>1</th>
+					<th>张三</th>
+					<th>22</th>
+				</tr>
+				<tr onmouseover="changeColor('tr2','over')" id="tr2" onmouseout="changeColor('tr2','out')">
+					<th><input type="checkbox" name="checkOne" /></th>
+					<th>2</th>
+					<th>李四</th>
+					<th>25</th>
+				</tr>
+				<tr onmouseover="changeColor('tr3','over')" id="tr3" onmouseout="changeColor('tr3','out')">
+					<th><input type="checkbox" name="checkOne" /></th>
+					<th>3</th>
+					<th>王五</th>
+					<th>27</th>
+				</tr>
+				<tr onmouseover="changeColor('tr4','over')" id="tr4" onmouseout="changeColor('tr4','out')">
+					<th><input type="checkbox" name="checkOne" /></th>
+					<th>4</th>
+					<th>赵六</th>
+					<th>29</th>
+				</tr>
+				<tr onmouseover="changeColor('tr5','over')" id="tr5" onmouseout="changeColor('tr5','out')">
+					<th><input type="checkbox" name="checkOne" /></th>
+					<th>5</th>
+					<th>田七</th>
+					<th>30</th>
+				</tr>
+				<tr onmouseover="changeColor('tr6','over')" id="tr6" onmouseout="changeColor('tr6','out')">
+					<th><input type="checkbox" name="checkOne" /></th>
+					<th>6</th>
+					<th>汾九</th>
+					<th>20</th>
+				</tr>
+			</tbody>
+
+		</table>
+	</body>
+</html>

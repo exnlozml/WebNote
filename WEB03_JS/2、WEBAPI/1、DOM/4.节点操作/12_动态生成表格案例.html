@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.ip {
+				color: #ccc;
+				border-color: blanchedalmond;
+			}
+
+			.tb {
+				margin: 10px auto;
+				width: 360px;
+			}
+
+			table {
+				margin: 0 auto;
+				width: 360px;
+				border-collapse: collapse;
+			}
+
+			table thead tr {
+				height: 28px;
+				background-color: #87CEEB;
+			}
+
+			table thead td {
+				font-size: 18px;
+				text-align: center;
+			}
+
+			table tbody tr {
+				height: 26px;
+				background-color: #F5F5F5
+			}
+
+			table tbody td {
+				font-size: 16px;
+				text-align: center;
+				border-bottom: 2px solid #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="um">
+			<input type="text" value="姓名" class="ip" />
+			<input type="text" value="科目" class="ip" />
+			<input type="text" value="成绩" class="ip" />
+			<input type="button" value="导入" />
+		</div>
+		<div class="tb">
+			<table>
+				<thead>
+					<tr>
+						<td>姓名</td>
+						<td>科目</td>
+						<td>成绩</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody id="all">
+					<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td><a href="javascript:;">删除</a></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td><a href="javascript:;">删除</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			var ipts = document.querySelectorAll('input');
+			//一.input输入部分
+			//1.表单校验部分 合并到二.动态添加数据中
+
+
+			//2.点击input输入框清除默认提示信息,离开后恢复默认信息
+			var mArr = ['姓名', '科目', '成绩'];
+			//(1)聚焦事件
+			for (var i = 0; i < ipts.length; i++) {
+				ipts[i].index = i;
+				ipts[i].onfocus = function() {
+					var index = this.index;
+					if (this.value === mArr[index]) {
+						this.value = '';
+					}
+					this.style.color = '#333';
+				}
+			}
+
+			//(2)失焦事件
+			for (var i = 0; i < ipts.length; i++) {
+				ipts[i].onblur = function() {
+					var index = this.index;
+					if (this.value === '') {
+						this.value = mArr[index];
+						this.style.color = '#ccc';
+					}
+				}
+			}
+
+
+			//二.动态添加数据
+			//1.获取元素
+			var tby = document.querySelector('tbody');
+			//2.注册导入事件
+			ipts[ipts.length - 1].onclick = function() {
+				for (var i = 0; i < ipts.length - 1; i++) {
+					//(1).表单校验
+					if (ipts[i].value === '') {
+						alert('请输入完整信息');
+						return false;
+					} else if (ipts[i].value === mArr[i]) {
+						alert('请输入完整信息');
+						return false;
+					}
+				}
+				//(2).创建节点
+				var trs = document.createElement('tr');
+				tby.appendChild(trs);
+				for (var i = 0; i < ipts.length - 1; i++) {
+					var tds = document.createElement('td');
+					tds.innerHTML = ipts[i].value;
+					trs.appendChild(tds);
+				}
+				var tds = document.createElement('td');
+				tds.innerHTML = "<a href='javascript:;'>删除</a>";
+				trs.appendChild(tds);
+				//3.删除事件
+				//因为写在导入事件之外时,不能动态获取到新添加的tr及其以内的元素节点,导致无法删除新添加的内容
+				var as = document.querySelectorAll('a');
+				for (var i = 0; i < as.length; i++) {
+					as[i].onclick = function() {
+						tby.removeChild(this.parentNode.parentNode);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
